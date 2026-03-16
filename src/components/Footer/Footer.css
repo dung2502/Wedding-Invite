@@ -1,0 +1,77 @@
+.footer{
+
+background:#111;
+color:white;
+padding:60px 20px 20px;
+text-align:center;
+
+}
+
+.footer-content h2{
+
+font-size:28px;
+margin-bottom:10px;
+
+}
+
+.heart{
+
+color:#ff4d6d;
+margin:0 10px;
+animation:beat 1.2s infinite;
+
+}
+
+@keyframes beat{
+
+0%{transform:scale(1)}
+50%{transform:scale(1.2)}
+100%{transform:scale(1)}
+
+}
+
+.date{
+
+opacity:0.8;
+margin-bottom:20px;
+
+}
+
+.thanks{
+
+max-width:500px;
+margin:auto;
+opacity:0.8;
+line-height:1.6;
+
+}
+
+.social{
+
+margin-top:20px;
+
+}
+
+.social a{
+
+color:white;
+font-size:22px;
+margin:0 10px;
+transition:0.3s;
+
+}
+
+.social a:hover{
+
+color:#ff4d6d;
+transform:scale(1.2);
+
+}
+
+.copyright{
+
+margin-top:40px;
+font-size:14px;
+opacity:0.6;
+
+}
