@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 
 export default function useCountdown(targetDate) {
   const startDate = new Date("Jan 01 2025").getTime();
 
-  const calculate = () => {
+  const calculate = useCallback(() => {
     const now = new Date().getTime();
     const distance = targetDate - now;
 
@@ -25,7 +25,7 @@ export default function useCountdown(targetDate) {
       seconds: Math.floor((distance % (1000 * 60)) / 1000),
       progress,
     };
-  };
+  }, [targetDate]); // ✅ FIX
 
   const [time, setTime] = useState(calculate());
 
@@ -35,7 +35,7 @@ export default function useCountdown(targetDate) {
     }, 1000);
 
     return () => clearInterval(timer);
-  }, []);
+  }, [calculate]); // ✅ FIX
 
   return time;
 }

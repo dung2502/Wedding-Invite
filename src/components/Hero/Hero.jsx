@@ -28,7 +28,7 @@ export default function Hero() {
       setTime({
         days: Math.floor(distance / (1000 * 60 * 60 * 24)),
         hours: Math.floor(
-          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
         ),
         minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
         seconds: Math.floor((distance % (1000 * 60)) / 1000),
@@ -36,21 +36,16 @@ export default function Hero() {
     }, 1000);
 
     return () => clearInterval(timer);
-  }, []);
+  }, [weddingDate]); // ✅ FIX
 
   return (
     <section className="hero" style={{ backgroundImage: `url(${hero})` }}>
       <div className="overlay"></div>
       <Petals />
-      <div className="petals">
-        {Array.from({ length: 20 }).map((_, i) => (
-          <span key={i} style={{ "--i": i }}></span>
-        ))}
-      </div>
 
       <motion.div
         initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 3, y: 0 }}
+        animate={{ opacity: 1, y: 0 }} // ✅ FIX opacity
         transition={{ duration: 2, delay: 1 }}
         className="hero-content"
       >
@@ -88,7 +83,6 @@ export default function Hero() {
           />
         </motion.p>
 
-        {/* FAMILY INFO */}
         <motion.div
           className="family-info"
           initial={{ opacity: 0, y: 20 }}
@@ -110,7 +104,6 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* COUNTDOWN MINI */}
         <motion.div
           className="countdown-mini"
           initial={{ opacity: 0 }}

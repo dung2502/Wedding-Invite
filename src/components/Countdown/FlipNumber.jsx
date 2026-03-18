@@ -5,14 +5,18 @@ export default function FlipNumber({ value }) {
   const [animate, setAnimate] = useState(false);
 
   useEffect(() => {
+    let timeout;
+
     if (value !== display) {
       setAnimate(true);
-      setTimeout(() => {
+      timeout = setTimeout(() => {
         setDisplay(value);
         setAnimate(false);
       }, 200);
     }
-  }, [value]);
+
+    return () => clearTimeout(timeout);
+  }, [value, display]); // ✅ FIX
 
   return (
     <div className={`flip-number ${animate ? "flip" : ""}`}>
