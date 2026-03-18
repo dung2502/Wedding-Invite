@@ -1,87 +1,85 @@
-import { useState } from "react"
-import Masonry from "react-masonry-css"
-import Lightbox from "yet-another-react-lightbox"
-import "yet-another-react-lightbox/styles.css"
+import { useState } from "react";
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
+import { motion } from "framer-motion";
 
-import g1 from "../../assets/images/bg.jpg"
-import g2 from "../../assets/images/bg.jpg"
-import g3 from "../../assets/images/bg.jpg"
-import g4 from "../../assets/images/bg.jpg"
-import g5 from "../../assets/images/bg.jpg"
-import g6 from "../../assets/images/bg.jpg"
+import "./Gallery.css";
 
-import "./Gallery.css"
+const images = [
+  { src: require("../../assets/images/bg.jpg"), category: "love" },
+  { src: require("../../assets/images/bg.jpg"), category: "ceremony" },
+  { src: require("../../assets/images/bg.jpg"), category: "party" },
+  { src: require("../../assets/images/bg.jpg"), category: "love" },
+  { src: require("../../assets/images/bg.jpg"), category: "ceremony" },
+  { src: require("../../assets/images/bg.jpg"), category: "party" },
+  { src: require("../../assets/images/bg.jpg"), category: "love" },
+  { src: require("../../assets/images/bg.jpg"), category: "party" },
+  { src: require("../../assets/images/bg.jpg"), category: "ceremony" },
+  { src: require("../../assets/images/bg.jpg"), category: "love" },
+  { src: require("../../assets/images/bg.jpg"), category: "ceremony" },
+  { src: require("../../assets/images/bg.jpg"), category: "love" },
+];
 
-export default function Gallery(){
+const filters = ["all", "love", "ceremony", "party"];
 
-const images=[g1,g2,g3,g4,g5,g6]
+export default function Gallery() {
+  const [filter, setFilter] = useState("all");
+  const [open, setOpen] = useState(false);
+  const [index, setIndex] = useState(0);
 
-const [open,setOpen]=useState(false)
-const [index,setIndex]=useState(0)
+  const filteredImages =
+    filter === "all" ? images : images.filter((img) => img.category === filter);
 
-const breakpoints={
-default:3,
-900:2,
-500:1
+  return (
+    <section className="masonry-section">
+      <h2 className="title">Album Hình Cưới</h2>
+
+      {/* 🔥 FILTER */}
+      <div className="filter-bar">
+        {filters.map((f) => (
+          <button
+            key={f}
+            className={filter === f ? "active" : ""}
+            onClick={() => setFilter(f)}
+          >
+            {f}
+          </button>
+        ))}
+      </div>
+
+      {/* 🔥 MASONRY */}
+      <div className="masonry">
+        {filteredImages.map((img, i) => (
+          <motion.div
+            key={i}
+            className="masonry-item"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: i * 0.05 }}
+            onClick={() => {
+              setIndex(i);
+              setOpen(true);
+            }}
+          >
+            <div className="img-wrapper">
+              <img src={img.src} alt="" loading="lazy" />
+
+              {/* overlay */}
+              <div className="overlay">
+                <span>Xem ảnh</span>
+              </div>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+
+      {/* 🔥 LIGHTBOX */}
+      <Lightbox
+        open={open}
+        close={() => setOpen(false)}
+        index={index}
+        slides={filteredImages.map((img) => ({ src: img.src }))}
+      />
+    </section>
+  );
 }
-
-return(
-
-<section id="gallery" className="gallery">
-
-<h2 className="gallery-title">Khoảnh Khắc</h2>
-
-<p className="gallery-subtitle">
-Những kỷ niệm đẹp của tụi mình
-</p>
-
-<Masonry
-breakpointCols={breakpoints}
-className="gallery-masonry"
-columnClassName="gallery-column"
->
-
-{images.map((img,i)=>(
-
-<div
-key={i}
-className="gallery-item"
-onClick={()=>{
-
-setIndex(i)
-setOpen(true)
-
-}}
->
-
-<img src={img} alt="wedding"/>
-
-<div className="gallery-overlay">
-<span>Xem ảnh</span>
-</div>
-
-</div>
-
-))}
-
-</Masonry>
-
-<Lightbox
-open={open}
-close={()=>setOpen(false)}
-index={index}
-slides={images.map(src=>({src}))}
-/>
-
-</section>
-
-)
-
-}
-
-
-
-
-
-
-

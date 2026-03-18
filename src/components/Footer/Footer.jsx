@@ -10,11 +10,11 @@ return(
 <div className="footer-content">
 
 <h2>
-ĐỨC HẢI <FaHeart className="heart"/> MINH ÁNH
+Đức Hải <FaHeart className="heart"/> Minh Ánh
 </h2>
 
 <p className="date">
-22 November 2025
+08 August 2026
 </p>
 
 <p className="thanks">
@@ -37,8 +37,7 @@ Cảm ơn bạn đã dành thời gian tham dự ngày trọng đại của chú
 
 <div className="copyright">
 
-© 2025 Wedding Invitation • Made with Love
-
+© 2026 Wedding Invitation • Made with Love
 </div>
 
 </footer>

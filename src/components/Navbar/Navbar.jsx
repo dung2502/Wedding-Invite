@@ -1,29 +1,67 @@
+import { useState, useEffect } from "react"
 import { Link } from "react-scroll"
 import "./Navbar.css"
 
 export default function Navbar(){
 
-return(
+  const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
 
-<nav className="navbar">
+  useEffect(()=>{
+    const handleScroll = () => {
+      if(window.scrollY > 50){
+        setScrolled(true)
+      } else {
+        setScrolled(false)
+      }
+    }
 
-<div className="logo">
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  },[])
 
-H&A
+  return(
 
-</div>
+    <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
 
-<div className="menu">
+      <div className="logo">
+        💍 H&A
+      </div>
 
-<Link to="story" smooth>Story</Link>
-<Link to="gallery" smooth>Gallery</Link>
-<Link to="event" smooth>Event</Link>
-<Link to="rsvp" smooth>RSVP</Link>
+      {/* Hamburger */}
+      <div className="hamburger" onClick={()=>setOpen(!open)}>
+        ☰
+      </div>
 
-</div>
+      <div className={`menu ${open ? "open" : ""}`}>
 
-</nav>
+        <Link to="story" smooth spy activeClass="active" onClick={()=>setOpen(false)}>
+          Story
+        </Link>
 
-)
+        <Link to="gallery" smooth spy activeClass="active" onClick={()=>setOpen(false)}>
+          Gallery
+        </Link>
 
+        <Link to="event" smooth spy activeClass="active" onClick={()=>setOpen(false)}>
+          Event
+        </Link>
+
+        <Link to="gift" smooth spy activeClass="active" onClick={()=>setOpen(false)}>
+          Gift
+        </Link>
+
+        <Link to="rsvp" smooth spy activeClass="active" className="rsvp-btn" onClick={()=>setOpen(false)}>
+          RSVP
+        </Link>
+
+        <div className="music-btn">
+          🎵
+        </div>
+
+      </div>
+
+    </nav>
+
+  )
 }

@@ -6,7 +6,6 @@ import Gallery from "./components/Gallery/Gallery"
 import Event from "./components/Event/Event"
 import Gift from "./components/Gift/Gift"
 import RSVP from "./components/RSVP/RSVP"
-import Guestbook from "./components/Guestbook/Guestbook"
 import Footer from "./components/Footer/Footer"
 
 import "./styles/global.css"

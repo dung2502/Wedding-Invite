@@ -1,4 +1,5 @@
 .story{
+  font-family: "Dancing Script", cursive;
   position: relative;
   background:
     radial-gradient(1000px 380px at 50% 0%, rgba(233,30,99,0.10), transparent 60%),
@@ -7,18 +8,28 @@
 }
 
 .story__title{
+  font-size: 60px;
   margin-bottom: 10px;
 }
 
 .story__subtitle{
+  font-size: 28px;
   max-width: 720px;
   margin: 0 auto 44px;
   opacity: 0.75;
   text-align: center;
-  font-size: 16px;
+}
+
+.story__note{
+  font-size: 28px;
+  max-width: 720px;
+  margin: 0 auto 44px;
+  opacity: 0.75;
+  text-align: center;
 }
 
 .timeline{
+  font-size: 28px;
   max-width: 900px;
   margin: 0 auto;
   position: relative;
@@ -30,10 +41,17 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  width: 2px;
-  background: linear-gradient(180deg, rgba(233,30,99,0.0), rgba(233,30,99,0.9), rgba(233,30,99,0.0));
+  width: 3px;
+  background: linear-gradient(180deg, #e91e63, #ff9ac3);
   top: 0;
-  bottom: 0;
+  height: 0;
+  animation: growLine 2s ease forwards;
+}
+
+@keyframes growLine{
+  to{
+    height: 100%;
+  }
 }
 
 .timeline-item{
@@ -57,13 +75,14 @@
 }
 
 .timeline-dot{
+  font-size: 18px;
   position: absolute;
-  top: 28px;
-  width: 14px;
-  height: 14px;
-  border-radius: 999px;
-  background: #e91e63;
-  box-shadow: 0 10px 22px rgba(233,30,99,0.28);
+  top: 22px;
+  transform: translateY(-50%);
+  background: white;
+  border-radius: 50%;
+  padding: 6px;
+  box-shadow: 0 8px 20px rgba(233,30,99,0.3);
 }
 
 .timeline-item:nth-child(odd) .timeline-dot{
@@ -75,24 +94,23 @@
 }
 
 .timeline-card{
-  width: min(360px, 100%);
-  background: rgba(255,255,255,0.85);
-  border: 1px solid rgba(233,30,99,0.10);
-  backdrop-filter: blur(10px);
-  border-radius: 16px;
-  padding: 18px 18px 16px;
-  box-shadow:
-    0 18px 40px rgba(17, 17, 17, 0.08),
-    0 2px 10px rgba(233, 30, 99, 0.08);
-  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  backdrop-filter: blur(14px);
+  transition: all 0.4s ease;
 }
 
 .timeline-card:hover{
-  transform: translateY(-3px);
-  border-color: rgba(233,30,99,0.22);
-  box-shadow:
-    0 22px 55px rgba(17, 17, 17, 0.10),
-    0 6px 18px rgba(233, 30, 99, 0.12);
+  transform: translateY(-6px) scale(1.03);
+}
+
+.timeline-card::after{
+  content: "Xem ảnh 📸";
+  font-size: 12px;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.timeline-card:hover::after{
+  opacity: 1;
 }
 
 .timeline-year{

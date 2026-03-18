@@ -1,80 +1,92 @@
-import { useEffect, useState } from "react"
-import "./Countdown.css"
+import { useEffect } from "react";
+import "./Countdown.css";
+import useCountdown from "./useCountdown";
+import FlipNumber from "./FlipNumber";
+import confetti from "canvas-confetti";
 
-export default function Countdown(){
+export default function Countdown() {
+  const weddingDate = new Date("Aug 08 2026 00:00:00").getTime();
+  const time = useCountdown(weddingDate);
 
-const weddingDate = new Date("Nov 22 2025").getTime()
+  useEffect(() => {
+    if (time?.progress >= 100) {
+      confetti({
+        particleCount: 200,
+        spread: 100,
+        origin: { y: 0.6 },
+      });
+    }
+  }, [time]);
 
-const [time,setTime] = useState({
-days:0,
-hours:0,
-minutes:0,
-seconds:0
-})
+  return (
+    <section className="countdown">
+      <h2 className="count-title">Đếm ngược ngày cưới 💍</h2>
 
-useEffect(()=>{
+      <p className="count-date-full">08 • 08 • 2026</p>
 
-const timer = setInterval(()=>{
+      {time ? (
+        <>
+          <div className="count-grid">
+            <div className="count-item">
+              <FlipNumber value={time.days} />
+              <span>Ngày</span>
+            </div>
 
-const now = new Date().getTime()
+            <div className="count-item">
+              <FlipNumber value={time.hours} />
+              <span>Giờ</span>
+            </div>
 
-const distance = weddingDate - now
+            <div className="count-item">
+              <FlipNumber value={time.minutes} />
+              <span>Phút</span>
+            </div>
 
-if(distance <= 0){
-clearInterval(timer)
-return
-}
+            <div className="count-item">
+              <FlipNumber value={time.seconds} />
+              <span>Giây</span>
+            </div>
+          </div>
 
-setTime({
+          {/* PROGRESS BAR */}
+          <div className="progress-container">
+            <div className="progress-track">
+              {/* Bride */}
+              <div className={`bride ${time?.progress >= 95 ? "love" : ""}`}>
+                👰
+              </div>
 
-days:Math.floor(distance/(1000*60*60*24)),
+              {/* Groom */}
+              <div
+                className={`groom ${time?.progress >= 95 ? "love" : ""}`}
+                style={{ left: `${time?.progress || 0}%` }}
+              >
+                🤵‍♂️
+              </div>
 
-hours:Math.floor((distance%(1000*60*60*24))/(1000*60*60)),
+              {/* Progress */}
+              <div
+                className="progress-bar"
+                style={{ width: `${time?.progress || 0}%` }}
+              ></div>
 
-minutes:Math.floor((distance%(1000*60*60))/(1000*60)),
+              {/* Hearts */}
+              {time?.progress >= 85 && <div className="hearts">💖 💕 💗</div>}
+            </div>
 
-seconds:Math.floor((distance%(1000*60))/1000)
+            <p className="progress-text">
+              Hành trình tình yêu: {Math.floor(time?.progress || 0)}%
+            </p>
 
-})
-
-},1000)
-
-return()=>clearInterval(timer)
-
-},[])
-
-return(
-
-<section className="countdown fade-up">
-
-<h2 className="count-title">Counting Down</h2>
-
-<div className="count-grid">
-
-<div className="count-item">
-<div className="count-number">{time.days}</div>
-<span className="count-label">Days</span>
-</div>
-
-<div className="count-item">
-<div className="count-number">{time.hours}</div>
-<span className="count-label">Hours</span>
-</div>
-
-<div className="count-item">
-<div className="count-number">{time.minutes}</div>
-<span className="count-label">Minutes</span>
-</div>
-
-<div className="count-item">
-<div className="count-number">{time.seconds}</div>
-<span className="count-label">Seconds</span>
-</div>
-
-</div>
-
-</section>
-
-)
-
+            {/* 🎉 Khi hoàn thành */}
+            {time?.progress >= 100 && (
+              <div className="wedding-done">🎉 Happy Wedding 🎉</div>
+            )}
+          </div>
+        </>
+      ) : (
+        <div className="count-done">🎉 Hôm nay là ngày cưới! 🎉</div>
+      )}
+    </section>
+  );
 }

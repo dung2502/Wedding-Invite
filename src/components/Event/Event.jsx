@@ -1,61 +1,114 @@
-import "./Event.css"
-export default function Event(){
+import "./Event.css";
 
-return(
+export default function Event() {
+  return (
+    <section className="event">
 
-<section id="event" className="event event--reveal">
+      <div className="event-container">
 
-<h2 className="event__title">Wedding Event</h2>
-<p className="event__subtitle">
-Rất mong được đón tiếp bạn trong ngày vui của chúng mình.
-</p>
+        {/* ===== LỄ THÀNH HÔN ===== */}
+        <div className="event-block">
+          <h2 className="event-heading">LỄ THÀNH HÔN</h2>
 
-<div className="event-grid">
+          <p className="event-time">VÀO LÚC 10H30 | THỨ BA</p>
 
-<div className="event-card event-card--reveal">
+          <div className="event-date">2 5 . 1 1 . 2 0 2 5</div>
 
-<h3>Lễ Vu Quy</h3>
+          <p className="event-lunar">(Tức ngày 06 Tháng 10 Năm Ất Tỵ)</p>
 
-<p className="event-meta">21/11/2025</p>
+          <h3 className="event-location-title">TẠI TƯ GIA NHÀ TRAI</h3>
 
-<p className="event-place">Hải Phòng</p>
+          <p className="event-location">
+            Thôn Cầu - Bãi Trành<br />
+            Thanh Hóa
+          </p>
+        </div>
 
-</div>
+        <div className="divider" />
 
-<div className="event-card event-card--reveal">
+        {/* ===== LỄ VU QUY ===== */}
+        <div className="event-block">
+          <h2 className="event-heading">LỄ VU QUY</h2>
 
-<h3>Lễ Thành Hôn</h3>
+          <p className="event-time">VÀO LÚC 09H00 | THỨ BẢY</p>
 
-<p className="event-meta">22/11/2025</p>
+          <div className="event-date">2 2 . 1 1 . 2 0 2 5</div>
 
-<p className="event-place">Bãi Trành, Như Xuân, Thanh Hóa</p>
+          <p className="event-lunar">(Tức ngày 03 Tháng 10 Năm Ất Tỵ)</p>
 
-</div>
+          <h3 className="event-location-title">TẠI TƯ GIA NHÀ GÁI</h3>
 
-</div>
+          <p className="event-location">
+            Khu phố 4 - Yên Cát<br />
+            Thanh Hóa
+          </p>
+        </div>
 
-<div className="event-map event-map--reveal">
-<div className="event-address">
-<div className="event-address__label">Địa chỉ</div>
-<div className="event-address__value">Bãi Trành, Như Xuân, Thanh Hóa</div>
-<a
-className="event-address__link"
-href="https://www.google.com/maps?q=B%C3%A3i+Tr%C3%A0nh,+Nh%C6%B0+Xu%C3%A2n,+Thanh+H%C3%B3a"
-target="_blank"
-rel="noreferrer"
->
-Mở Google Maps
-</a>
-</div>
+        <div className="divider" />
 
-<iframe
-src="https://maps.google.com/maps?q=B%C3%A3i%20Tr%C3%A0nh%2C%20Nh%C6%B0%20Xu%C3%A2n%2C%20Thanh%20H%C3%B3a&t=&z=13&ie=UTF8&iwloc=&output=embed"
-title="map"
-/>
-</div>
+        {/* ===== TIỆC ===== */}
+        <div className="event-block">
+          <h2 className="event-heading">BUỔI TIỆC CHUNG VUI</h2>
 
-</section>
+          <p className="event-time">VÀO LÚC 17H00 | THỨ HAI</p>
 
-)
+          <div className="event-date-big">
+            <span>Tháng 11</span>
+            <span className="day"> | 24 |</span>
+            <span>2025</span>
+          </div>
 
+          <p className="event-lunar">(Tức ngày 05 Tháng 10 Năm Ất Tỵ)</p>
+
+          <h3 className="event-location-title">TẠI TƯ GIA NHÀ GÁI</h3>
+
+          <p className="event-location">
+            Thôn Hồ - Xuân Bình - Thanh Hóa
+          </p>
+        </div>
+
+        {/* ===== MAPS ===== */}
+        <div className="event-maps">
+
+          {/* Nhà trai */}
+          <div className="map-card">
+            <h4>📍 Nhà trai</h4>
+
+            <iframe
+              src="https://maps.google.com/maps?q=Bãi Trành Thanh Hóa&t=&z=13&ie=UTF8&iwloc=&output=embed"
+              title="map-nha-trai"
+            />
+
+            <a
+              href="https://www.google.com/maps?q=Bãi Trành Thanh Hóa"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Mở Google Maps
+            </a>
+          </div>
+
+          {/* Nhà gái */}
+          <div className="map-card">
+            <h4>📍 Nhà gái</h4>
+
+            <iframe
+              src="https://maps.google.com/maps?q=Yên Cát Thanh Hóa&t=&z=13&ie=UTF8&iwloc=&output=embed"
+              title="map-nha-gai"
+            />
+
+            <a
+              href="https://www.google.com/maps?q=Yên Cát Thanh Hóa"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Mở Google Maps
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  );
 }
