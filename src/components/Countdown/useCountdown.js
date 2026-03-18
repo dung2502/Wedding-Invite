@@ -1,16 +1,16 @@
 import { useEffect, useState, useCallback } from "react";
 
-export default function useCountdown(targetDate) {
-  const startDate = new Date("Jan 01 2025").getTime();
+const START_DATE = new Date("Jan 01 2025").getTime(); // ✅ đưa ra ngoài
 
+export default function useCountdown(targetDate) {
   const calculate = useCallback(() => {
     const now = new Date().getTime();
     const distance = targetDate - now;
 
     if (distance <= 0) return null;
 
-    const total = targetDate - startDate;
-    const passed = now - startDate;
+    const total = targetDate - START_DATE;
+    const passed = now - START_DATE;
 
     let progress = 0;
 
@@ -25,7 +25,7 @@ export default function useCountdown(targetDate) {
       seconds: Math.floor((distance % (1000 * 60)) / 1000),
       progress,
     };
-  }, [targetDate]); // ✅ FIX
+  }, [targetDate]); // ✅ sạch luôn
 
   const [time, setTime] = useState(calculate());
 
@@ -35,7 +35,7 @@ export default function useCountdown(targetDate) {
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [calculate]); // ✅ FIX
+  }, [calculate]);
 
   return time;
 }
