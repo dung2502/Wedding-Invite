@@ -23,11 +23,11 @@ Cảm ơn bạn đã dành thời gian tham dự ngày trọng đại của chú
 
 <div className="social">
 
-<a href="#">
+<a href="https://facebook.com" target="_blank" rel="noreferrer">
 <FaFacebook/>
 </a>
 
-<a href="#">
+<a href="https://instagram.com" target="_blank" rel="noreferrer">
 <FaInstagram/>
 </a>
 

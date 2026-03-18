@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { Link } from "react-scroll";
 import { useEffect, useState } from "react";
 import hero from "../../assets/images/bg.jpg";
 import Petals from "./Petals";
