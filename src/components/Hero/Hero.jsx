@@ -28,7 +28,7 @@ export default function Hero() {
       setTime({
         days: Math.floor(distance / (1000 * 60 * 60 * 24)),
         hours: Math.floor(
-          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
         ),
         minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
         seconds: Math.floor((distance % (1000 * 60)) / 1000),
@@ -45,49 +45,53 @@ export default function Hero() {
 
       <motion.div
         initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }} // ✅ FIX opacity
-        transition={{ duration: 2, delay: 1 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1.2, delay: 0.5, ease: "easeOut" }}
         className="hero-content"
       >
+        {/* 🎯 Title */}
         <motion.h3
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 2, delay: 1.2 }}
+          transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
         >
           Thư mời dự đám cưới
         </motion.h3>
 
         <motion.h1
-          initial={{ opacity: 0, scale: 0.9 }}
+          initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 2, delay: 1.4 }}
+          transition={{ duration: 1, delay: 1.2 , ease: "easeOut" }}
         >
           Đức Hải & Minh Ánh
         </motion.h1>
 
+        {/* 📅 Date */}
         <motion.p
           className="date"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 2, delay: 1.6 }}
+          transition={{ duration: 0.8, delay: 1.6 , ease: "easeOut" }}
         >
           08 • 08 • 2026
         </motion.p>
 
+        {/* ✨ Quote */}
         <motion.p className="subtitle">
-          <WordReveal text="Hôn nhân là chuyện cả đời," delay={1.8} />
+          <WordReveal text="Hôn nhân là chuyện cả đời," delay={2.0} />
           <br />
           <WordReveal
             text="Yêu người vừa ý, cưới người mình thương..."
-            delay={2.8}
+            delay={3.0}
           />
         </motion.p>
 
+        {/* 👨‍👩‍👧 Family */}
         <motion.div
           className="family-info"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 2, delay: 2 }}
+          transition={{ duration: 1, delay: 3.8 , ease: "easeOut" }}
         >
           <div className="family-column">
             <h4>Nhà gái</h4>
@@ -104,11 +108,12 @@ export default function Hero() {
           </div>
         </motion.div>
 
+        {/* ⏳ Countdown */}
         <motion.div
           className="countdown-mini"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 2, delay: 2.2 }}
+          transition={{ duration: 1, delay: 4.5 }}
         >
           {["Ngày", "Giờ", "Phút", "Giây"].map((label, i) => (
             <div className="time-box" key={i}>
