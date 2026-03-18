@@ -20,7 +20,7 @@ export default function LoveLetter() {
       document.body.classList.add("flash");
 
       setTimeout(() => {
-        navigate("/home");
+        navigate("/minhanh&duchai08082026");
       }, 600);
     }, 1800);
   };

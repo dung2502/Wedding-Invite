@@ -42,7 +42,7 @@ function App() {
         <Route path="/" element={<LoveLetter />} />
 
         {/* 🎉 Trang thiệp cưới */}
-        <Route path="/home" element={<HomePage />} />
+        <Route path="/minhanh&duchai08082026" element={<HomePage />} />
       </Routes>
     </Router>
   );
