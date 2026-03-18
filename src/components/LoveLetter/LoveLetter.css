@@ -96,25 +96,33 @@
 
 .open .flap {
   transform: rotateX(180deg);
-  transition: transform 0.4s ease, z-index 0.6s;
+  transition:
+    transform 0.4s ease,
+    z-index 0.6s;
   z-index: 1;
 }
 
 .close .flap {
   transform: rotateX(0deg);
-  transition: transform 0.4s 0.6s ease, z-index 1s;
+  transition:
+    transform 0.4s 0.6s ease,
+    z-index 1s;
   z-index: 5;
 }
 
 .close .letter {
   transform: translateY(0px);
-  transition: transform 0.4s ease, z-index 1s;
+  transition:
+    transform 0.4s ease,
+    z-index 1s;
   z-index: 1;
 }
 
 .open .letter {
   transform: translateY(-100px);
-  transition: transform 0.4s 0.6s ease, z-index 0.6s;
+  transition:
+    transform 0.4s 0.6s ease,
+    z-index 0.6s;
   z-index: 2;
 }
 
@@ -164,8 +172,12 @@
   left: 20%;
   transform: scale(0.6);
   opacity: 1;
-  -webkit-animation: slideUp 4s linear 1, sideSway 2s ease-in-out 4 alternate;
-  -moz-animation: slideUp 4s linear 1, sideSway 2s ease-in-out 4 alternate;
+  -webkit-animation:
+    slideUp 4s linear 1,
+    sideSway 2s ease-in-out 4 alternate;
+  -moz-animation:
+    slideUp 4s linear 1,
+    sideSway 2s ease-in-out 4 alternate;
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
   -webkit-animation-delay: 0.7s;
@@ -176,8 +188,12 @@
   left: 55%;
   transform: scale(1);
   opacity: 1;
-  -webkit-animation: slideUp 5s linear 1, sideSway 4s ease-in-out 2 alternate;
-  -moz-animation: slideUp 5s linear 1, sideSway 4s ease-in-out 2 alternate;
+  -webkit-animation:
+    slideUp 5s linear 1,
+    sideSway 4s ease-in-out 2 alternate;
+  -moz-animation:
+    slideUp 5s linear 1,
+    sideSway 4s ease-in-out 2 alternate;
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
   -webkit-animation-delay: 0.7s;
@@ -188,8 +204,12 @@
   left: 10%;
   transform: scale(0.8);
   opacity: 1;
-  -webkit-animation: slideUp 7s linear 1, sideSway 2s ease-in-out 6 alternate;
-  -moz-animation: slideUp 7s linear 1, sideSway 2s ease-in-out 6 alternate;
+  -webkit-animation:
+    slideUp 7s linear 1,
+    sideSway 2s ease-in-out 6 alternate;
+  -moz-animation:
+    slideUp 7s linear 1,
+    sideSway 2s ease-in-out 6 alternate;
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
   -webkit-animation-delay: 0.7s;
@@ -302,6 +322,7 @@ body.flash::after {
   opacity: 1;
   animation: flashFade 0.6s forwards;
   z-index: 9999;
+  pointer-events: none;
 }
 
 @keyframes flashFade {
