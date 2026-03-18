@@ -6,7 +6,7 @@ export default function Footer() {
     <footer className="footer">
       <div className="footer-content">
         <h2>
-          Đức Hải <FaHeart className="heart" /> Minh Ánh
+          Đức Hải <FaHeart className="heart1" /> Minh Ánh
         </h2>
 
         <p className="date">08 August 2026</p>
