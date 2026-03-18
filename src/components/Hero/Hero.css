@@ -1,5 +1,5 @@
 .hero {
-  height: 100vh;
+  min-height: 100svh;
   background-size: cover;
   background-position: center;
 
@@ -35,27 +35,27 @@
 /* title */
 .hero h1 {
   font-family: "Great Vibes", cursive;
-  font-size: clamp(48px, 7vw, 90px);
+  font-size: clamp(28px, 6vw, 64px);
   margin: 20px 0;
   text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .hero h3 {
   font-family: "Great Vibes", cursive;
-  font-size: 40px;
+  font-size: clamp(14px, 3vw, 22px);
   letter-spacing: 4px;
   font-weight: 300;
 }
 
 /* date */
 .date {
-  font-size: 30px;
+  font-size: clamp(16px, 4vw, 28px);
   letter-spacing: 3px;
 }
 
 /* subtitle */
 .subtitle {
-  font-size: 26px;
+  font-size: clamp(14px, 3.5vw, 28px);
   margin-top: 10px;
   font-family: "Dancing Script", cursive;
 }
@@ -67,7 +67,8 @@
   justify-content: center;
   align-items: center;
   gap: 40px;
-  margin-top: 25px;
+  margin-top: 28px;
+  flex-wrap: wrap; /* 👈 QUAN TRỌNG */
 }
 
 .family-column {
