@@ -39,7 +39,7 @@ export default function Gallery() {
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % filtered.length);
-    }, 2000);
+    }, 3000);
     return () => clearInterval(interval);
   }, [filtered]);
 

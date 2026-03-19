@@ -34,7 +34,7 @@
 
 /* title */
 .hero h1 {
-  font-family: "Great Vibes", cursive;
+  font-family: "Dancing Script", cursive;
   font-size: clamp(28px, 6vw, 64px);
   margin: 20px 0;
   text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
@@ -42,7 +42,7 @@
 
 .hero h3 {
   font-family: "Great Vibes", cursive;
-  font-size: clamp(18px, 3vw, 22px);
+  font-size: clamp(24px, 3vw, 30px);
   letter-spacing: 4px;
   font-weight: 300;
 }
@@ -55,7 +55,7 @@
 
 /* subtitle */
 .subtitle {
-  font-size: clamp(14px, 3.5vw, 28px);
+  font-size: clamp(19px, 3.5vw, 28px);
   margin-top: 10px;
   font-family: "Dancing Script", cursive;
 }
