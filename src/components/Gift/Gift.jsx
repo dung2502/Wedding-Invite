@@ -1,26 +1,57 @@
+import { useState } from "react";
 import "./Gift.css";
-import qr from "../../assets/images/qr.jpg";
 
 export default function Gift() {
+  const [open, setOpen] = useState(false);
+  const [fade, setFade] = useState(false);
+
+  const handleClick = () => {
+    setOpen(true);
+
+    // ⏳ delay cho animation tim
+    setTimeout(() => {
+      setFade(true);
+    }, 1800);
+
+    // 🚀 chuyển trang
+    setTimeout(() => {
+      window.location.href = "https://facebook.com";
+    }, 2600);
+  };
+
   return (
-    <section id="gift" className="gift gift--reveal">
-      <h2 className="gift__title">Mừng Cưới</h2>
+    <section className="gift-simple">
+      <h2 className="gift-title">Hộp Quà Cưới</h2>
 
-      <p className="gift__subtitle">
-        Nếu bạn muốn gửi quà mừng, tụi mình xin nhận bằng mã QR bên dưới.
-      </p>
-
-      <div className="gift__grid">
-        <div className="gift-card gift-card--reveal">
-          <div className="gift-card__label">QR chuyển khoản</div>
-
-          <img src={qr} className="qr" alt="Mã QR mừng cưới" />
-
-          <div className="gift-card__hint">
-            Mở app ngân hàng và quét mã để chuyển khoản nhanh.
-          </div>
+      <div className="gift-box-wrapper" onClick={handleClick}>
+        {/* 🎁 BOX */}
+        <div className={`gift-box ${open ? "open" : ""}`}>
+          <div className="lid left" />
+          <div className="lid right" />
+          <div className="box-body" />
         </div>
+
+        {/* 💖 HEARTS */}
+        {open && (
+          <div className="hearts">
+            {[...Array(12)].map((_, i) => (
+              <span key={i} style={{ "--i": i }}>💖</span>
+            ))}
+          </div>
+        )}
+
+        {/* ↘️ ARROW */}
+        {!open && (
+          <div className="gift-arrow">
+            <span>
+              Click để gửi quà cho cô dâu chú rể
+            </span>
+          </div>
+        )}
       </div>
+
+      {/* 🌫 FADE OUT */}
+      {fade && <div className="fade-screen" />}
     </section>
   );
 }

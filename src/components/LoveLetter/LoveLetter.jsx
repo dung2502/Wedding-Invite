@@ -1,28 +1,35 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./LoveLetter.css";
+import couple from "../../assets/images/couple.png";
 
 export default function LoveLetter() {
   const [isOpen, setIsOpen] = useState(false);
   const [zoom, setZoom] = useState(false);
   const navigate = useNavigate();
+  const [showImage, setShowImage] = useState(false);
 
   const handleOpen = () => {
     setIsOpen(true);
 
-    // ⏱ chờ mở nắp
+    // ⏱ sau khi mở nắp → hiện ảnh
     setTimeout(() => {
-      setZoom(true); // 👉 bắt đầu zoom cinematic
-    }, 800);
+      setShowImage(true);
+    }, 600);
 
-    // ⏱ sau zoom → chuyển trang
+    // ⏱ zoom ảnh
+    setTimeout(() => {
+      setZoom(true);
+    }, 1000);
+
+    // ⏱ fade + chuyển trang
     setTimeout(() => {
       document.body.classList.add("flash");
 
       setTimeout(() => {
         navigate("/minhanh&duchai08082026");
       }, 600);
-    }, 1800);
+    }, 2200);
   };
 
   return (
@@ -37,7 +44,11 @@ export default function LoveLetter() {
           <div className="front pocket"></div>
 
           <div className="letter">
-            <div className="love-content">❤️ Forever & Always ❤️</div>
+            {!showImage ? (
+              <div className="love-content">❤️ Forever & Always ❤️</div>
+            ) : (
+              <img src={couple} alt="couple" className="letter-image" />
+            )}
           </div>
 
           <div className="hearts">

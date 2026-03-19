@@ -1,77 +1,214 @@
-.footer{
-
-background:#111;
-color:white;
-padding:60px 20px 20px;
-text-align:center;
-
+.footer {
+  position: relative;
+  background: linear-gradient(180deg, #111 0%, #1a1a1a 100%);
+  color: white;
+  padding: 80px 20px 30px;
+  text-align: center;
+  overflow: hidden;
 }
 
-.footer-content h2{
-
-font-size:28px;
-margin-bottom:10px;
-
+/* Glow nhẹ phía sau */
+.footer__overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    600px 200px at 50% 0%,
+    rgba(233, 30, 99, 0.2),
+    transparent 70%
+  );
+  pointer-events: none;
 }
 
-.heart1{
-
-color:#ff4d6d;
-margin:0 10px;
-animation:beat 1.2s infinite;
-
+.footer__content {
+  position: relative;
+  z-index: 1;
 }
 
-@keyframes beat{
-
-0%{transform:scale(1)}
-50%{transform:scale(1.2)}
-100%{transform:scale(1)}
-
+.footer__title {
+  font-size: clamp(26px, 4vw, 36px);
+  margin-bottom: 10px;
+  letter-spacing: 0.5px;
 }
 
-.date{
-
-opacity:0.8;
-margin-bottom:20px;
-
+/* ❤️ Heart animation xịn hơn */
+.footer__heart {
+  color: #ff4d6d;
+  margin: 0 10px;
+  animation: heartbeat 1.4s ease-in-out infinite;
 }
 
-.thanks{
-
-max-width:500px;
-margin:auto;
-opacity:0.8;
-line-height:1.6;
-
+@keyframes heartbeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.25);
+  }
+  40% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(1.15);
+  }
 }
 
-.social{
-
-margin-top:20px;
-
+/* Date */
+.footer__date {
+  opacity: 0.7;
+  margin-bottom: 18px;
+  letter-spacing: 2px;
 }
 
-.social a{
-
-color:white;
-font-size:22px;
-margin:0 10px;
-transition:0.3s;
-
+/* Text */
+.footer__thanks {
+  max-width: 520px;
+  margin: auto;
+  opacity: 0.75;
+  line-height: 1.7;
 }
 
-.social a:hover{
-
-color:#ff4d6d;
-transform:scale(1.2);
-
+/* Social */
+.footer__social {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+  gap: 18px;
 }
 
-.copyright{
+.footer__social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-margin-top:40px;
-font-size:14px;
-opacity:0.6;
+  width: 42px;
+  height: 42px;
 
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+
+  color: white;
+  font-size: 18px;
+
+  transition: all 0.25s ease;
+}
+
+.footer__social a:hover {
+  background: #ff4d6d;
+  transform: translateY(-4px) scale(1.1);
+  box-shadow: 0 10px 20px rgba(255, 77, 109, 0.3);
+}
+
+/* Copyright */
+.footer__copyright {
+  margin-top: 40px;
+  font-size: 13px;
+  opacity: 0.5;
+}
+
+/* Avatar */
+.footer__avatar {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 14px;
+  border: 3px solid rgba(255, 77, 109, 0.6);
+  box-shadow: 0 8px 20px rgba(255, 77, 109, 0.3);
+}
+
+/* Countdown */
+.footer__countdown {
+  margin-bottom: 10px;
+  color: #ff4d6d;
+  font-weight: 600;
+}
+
+/* Music button */
+.footer__music {
+  margin-top: 18px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: none;
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.footer__music:hover {
+  background: #ff4d6d;
+}
+
+/* Scroll to top */
+.footer__top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: none;
+  background: #ff4d6d;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(255, 77, 109, 0.4);
+  transition: 0.3s;
+  z-index: 9998;
+}
+
+.footer__top:hover {
+  transform: translateY(-4px);
+}
+
+/* 🎵 Music Disc */
+.music-disc {
+  position: fixed;
+  right: 20px;
+  bottom: 80px;
+
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+
+  background: radial-gradient(circle, #333 40%, #111 100%);
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  transition: 0.3s;
+
+  animation: spin 3s linear infinite;
+  animation-play-state: paused;
+  z-index: 9998;
+}
+
+.music-disc.playing {
+  animation-play-state: running;
+  box-shadow: 0 0 20px rgba(255, 77, 109, 0.6);
+}
+
+.music-disc:hover {
+  transform: scale(1.1);
+}
+
+/* Inner */
+.disc-inner {
+  width: 16px;
+  height: 16px;
+  background: #ff4d6d;
+  border-radius: 50%;
+}
+
+/* Spin */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

@@ -1,97 +1,126 @@
-import { useState } from "react"
-import "./RSVP.css"
+import { useState, useEffect } from "react";
+import "./RSVP.css";
+import toast from "react-hot-toast";
 
-export default function RSVP(){
+export default function RSVP() {
+  const [form, setForm] = useState({
+    name: "",
+    attend: "yes",
+    guest: 1,
+    message: "",
+  });
 
-const [name,setName] = useState("")
-const [attend,setAttend] = useState("yes")
-const [guest,setGuest] = useState(1)
-const [message,setMessage] = useState("")
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
 
-const submit=(e)=>{
+  // 👉 Load lại dữ liệu nếu user đã nhập trước đó
+  useEffect(() => {
+    const saved = localStorage.getItem("rsvp");
+    if (saved) setForm(JSON.parse(saved));
+  }, []);
 
-e.preventDefault()
+  // 👉 Auto save
+  useEffect(() => {
+    localStorage.setItem("rsvp", JSON.stringify(form));
+  }, [form]);
 
-if(!name){
-alert("Vui lòng nhập tên của bạn!")
-return
-}
+  const handleChange = (key, value) => {
+    setForm((prev) => ({ ...prev, [key]: value }));
+  };
 
-alert(
-`Cảm ơn ${name}!\n
-Tham dự: ${attend === "yes" ? "Có" : "Không"}\n
-Số khách: ${guest}`
-)
+  const submit = (e) => {
+    e.preventDefault();
 
-setName("")
-setGuest(1)
-setMessage("")
-}
+    if (!form.name.trim()) {
+      toast.error("Vui lòng nhập tên của bạn!");
+      return;
+    }
 
-return(
+    setLoading(true);
 
-<section id="rsvp" className="rsvp rsvp--reveal">
+    setTimeout(() => {
+      setLoading(false);
 
-<h2 className="rsvp__title">Xác nhận tham dự</h2>
+      toast.success(`Cảm ơn ${form.name}! 💖`, {
+        style: {
+          borderRadius: "12px",
+          background: "#fff",
+          color: "#e91e63",
+          fontWeight: "600",
+        },
+      });
 
-<p className="rsvp__subtitle">
-Vui lòng phản hồi trước ngày cưới để tụi mình chuẩn bị chu đáo hơn.
-</p>
+      // 👉 clear form
+      setForm({
+        name: "",
+        attend: "yes",
+        guest: 1,
+        message: "",
+      });
 
-<form className="rsvp__form" onSubmit={submit}>
+      setSuccess(true);
+    }, 1000);
+  };
 
-<input
-className="rsvp__input rsvp__field rsvp__field--reveal"
-placeholder="Tên của bạn"
-value={name}
-onChange={(e)=>setName(e.target.value)}
-/>
+  return (
+    <section className="rsvp">
+      <h2 className="rsvp__title">Xác nhận tham dự</h2>
 
-<div className="rsvp__radio rsvp__field rsvp__field--reveal">
+      <p className="rsvp__subtitle">Vui lòng phản hồi trước ngày cưới 💖</p>
 
-<label>
+      <form className="rsvp__form" onSubmit={submit}>
+        {/* Name */}
+        <input
+          className="rsvp__input"
+          placeholder="Tên của bạn"
+          value={form.name}
+          onChange={(e) => handleChange("name", e.target.value)}
+        />
 
-<input
-type="radio"
-value="yes"
-checked={attend==="yes"}
-onChange={(e)=>setAttend(e.target.value)}
-/>
+        {/* Attend */}
+        <div className="rsvp__radio">
+          <button
+            type="button"
+            className={form.attend === "yes" ? "active" : ""}
+            onClick={() => handleChange("attend", "yes")}
+          >
+            Sẽ tham dự
+          </button>
 
-Sẽ tham dự
+          <button
+            type="button"
+            className={form.attend === "no" ? "active" : ""}
+            onClick={() => handleChange("attend", "no")}
+          >
+            Không tham dự
+          </button>
+        </div>
 
-</label>
+        {/* Guest */}
+        {form.attend === "yes" && (
+          <input
+            type="number"
+            min="1"
+            className="rsvp__input"
+            value={form.guest}
+            onChange={(e) => handleChange("guest", e.target.value)}
+          />
+        )}
 
-<label>
+        {/* Message */}
+        <textarea
+          className="rsvp__textarea"
+          placeholder="Gửi lời chúc 💌"
+          value={form.message}
+          onChange={(e) => handleChange("message", e.target.value)}
+        />
 
-<input
-type="radio"
-value="no"
-checked={attend==="no"}
-onChange={(e)=>setAttend(e.target.value)}
-/>
+        <button className="rsvp__button" disabled={loading}>
+          {loading ? "Đang gửi..." : "Gửi xác nhận"}
+        </button>
 
-Không tham dự
-
-</label>
-
-</div>
-
-<textarea
-className="rsvp__textarea rsvp__field rsvp__field--reveal"
-placeholder="Gửi lời chúc cho cô dâu chú rể ❤️"
-value={message}
-onChange={(e)=>setMessage(e.target.value)}
-/>
-
-<button className="rsvp__button">
-Gửi xác nhận
-</button>
-
-</form>
-
-</section>
-
-)
-
+        {success && <p className="rsvp__success">💖 Cảm ơn bạn đã phản hồi!</p>}
+      </form>
+    </section>
+  );
 }
