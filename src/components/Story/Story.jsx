@@ -85,7 +85,7 @@ export default function Story() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        Nhớ bấm vào từng khoảnh khắc để xem hình ảnh của chúng mình nhé!
+        Nhớ bấm vào từng khoảnh khắc để xem hình ảnh của tụi mình nhé!
       </motion.p>
 
       <div className="timeline" ref={ref}>

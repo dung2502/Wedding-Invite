@@ -35,7 +35,7 @@
 /* title */
 .hero h1 {
   font-family: "Dancing Script", cursive;
-  font-size: clamp(28px, 6vw, 64px);
+  font-size: clamp(38px, 6vw, 64px);
   margin: 20px 0;
   text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
@@ -224,9 +224,16 @@
 /* responsive */
 @media (max-width: 768px) {
   .family-info {
-    flex-direction: column;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    font-size: 18px;
   }
-  .divider {
-    display: none;
+
+  .family-column h4 {
+    font-size: 18px;
+  }
+
+  .family-column p {
+    font-size: 16px;
   }
 }
