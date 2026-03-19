@@ -28,6 +28,7 @@
   border: none;
   background: #eee;
   cursor: pointer;
+  font-family: "Dancing Script", cursive;
 }
 
 .gallery-filter .active {
