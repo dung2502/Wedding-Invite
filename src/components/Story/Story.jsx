@@ -5,6 +5,7 @@ import TimelineModal from "./TimelineModal";
 import { useState } from "react";
 import { useScroll, useSpring } from "framer-motion";
 import { useRef } from "react";
+import { useTransform } from "framer-motion";
 
 import story1 from "../../assets/images/bg.jpg";
 import story2 from "../../assets/images/bg.jpg";
@@ -42,6 +43,12 @@ export default function Story() {
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start center", "end end"],
+  });
+
+  const wind = useTransform(scrollYProgress, [0, 1], [0, 1]);
+
+  const rotateWind = useTransform(wind, (v) => {
+    return Math.sin(v * 10) * 4; // 👈 dao động
   });
 
   const scaleY = useSpring(scrollYProgress, {
@@ -109,9 +116,10 @@ export default function Story() {
             {item.imageWedding && (
               <motion.div
                 className="timeline-wedding-image"
+                style={{ rotate: rotateWind }}
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
-                whileHover={{ scale: 1.08, rotate: 1 }}
+                whileHover={{ scale: 1.08 }}
                 transition={{ duration: 0.6 }}
               >
                 <img src={item.imageWedding} alt="" />

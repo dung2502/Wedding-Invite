@@ -1,7 +1,7 @@
 /* layout */
 .gift-simple {
   text-align: center;
-  padding: 120px 20px;
+  padding: 50px 20px;
    background:
     radial-gradient(1000px 380px at 50% 0%, rgba(233,30,99,0.10), transparent 60%),
     linear-gradient(180deg, #ffffff 0%, #fff8fb 55%, #ffffff 100%);
@@ -106,9 +106,11 @@
 }
 
 .gift-arrow span {
-  font-size: 14px;
+  font-size: 14.3px;
+  color: white  ;
   display: block;
   max-width: 220px;
+  font-family: "Dancing Script", cursive;
 }
 
 /* pulse */

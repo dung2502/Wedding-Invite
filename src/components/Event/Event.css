@@ -1,8 +1,7 @@
-/* ===== IMPORT FONT ===== */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Be+Vietnam+Pro:wght@300;400;500&display=swap');
 
 .event {
-  padding: 100px 20px;
+  padding: 50px 20px;
   text-align: center;
   background:
     radial-gradient(1000px 380px at 50% 0%, rgba(233,30,99,0.08), transparent 60%),
