@@ -16,18 +16,21 @@ const data = [
     text: "Chúng mình gặp nhau lần đầu",
     icon: "💘",
     images: [story1, story2],
+    imageWedding: story1,
   },
   {
     year: "2021",
     text: "Bắt đầu hẹn hò",
     icon: "💑",
     images: [story3, story4],
+    imageWedding: story1,
   },
   {
     year: "2025",
     text: "Quyết định về chung một nhà",
     icon: "💍",
     images: [story5, story1],
+    imageWedding: story1,
   },
 ];
 
@@ -75,6 +78,17 @@ export default function Story() {
             transition={{ duration: 0.7, delay: index * 0.2 }}
           >
             <div className="timeline-dot">{item.icon}</div>
+
+            {item.imageWedding && (
+              <motion.div
+                className="timeline-wedding-image"
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5 }}
+              >
+                <img src={item.imageWedding} alt="" />
+              </motion.div>
+            )}
 
             <motion.div
               className="timeline-card"
