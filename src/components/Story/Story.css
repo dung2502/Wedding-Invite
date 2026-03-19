@@ -64,14 +64,38 @@
   padding: 6px;
   z-index: 2;
   box-shadow: 0 8px 20px rgba(233,30,99,0.3);
+  align-self: center;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(233,30,99,0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 12px rgba(233,30,99,0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(233,30,99,0);
+  }
 }
 
 /* CARD */
 .timeline-card {
-  backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px); 
+  font-size: 25px;
   padding: 16px 22px 30px;
   border-radius: 16px;
   transition: 0.3s;
+  grid-column: 1;
+  justify-self: end;
+  text-align: right;
+  align-self: center;
+  height: 140px; /* khớp với thumbnail để canh dọc */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
 }
 
 .timeline-card:hover {
@@ -82,6 +106,10 @@
 .timeline-wedding-image {
   width: 140px;
   height: 140px;
+  grid-column: 3;
+  justify-self: start;
+  align-self: center;
+  transition: 0.4s;
 }
 
 .timeline-wedding-image img {
@@ -89,7 +117,7 @@
   height: 100%;
   object-fit: cover;
   border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(233,30,99,0.3);
+  box-shadow: 0 20px 50px rgba(233,30,99,0.4);
 }
 
 /* ========================= */
@@ -99,7 +127,6 @@
 .timeline-item.left .timeline-card {
   grid-column: 1;
   justify-self: end;
-  text-align: right;
 }
 
 .timeline-item.left .timeline-wedding-image {
@@ -125,11 +152,33 @@
 /* TEXT */
 .timeline-year {
   color: #e91e63;
-  margin-bottom: 8px;
+  margin: 0 0 8px;
 }
 
 .timeline-text {
   opacity: 0.85;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+}
+
+.timeline-line-animated {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  transform-origin: top;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(180deg, #e91e63, #ff9ac3);
+  z-index: 1;
+}
+
+/* Ẩn line cũ */
+.timeline::before {
+  display: none;
 }
 
 /* ========================= */
@@ -145,16 +194,18 @@
   .timeline-item {
     grid-template-columns: 1fr 40px 1fr; /* nhỏ lại */
     margin: 40px 0;
+    font-size: 20px;
   }
 
   .timeline-card {
-    max-width: 140px;
-    font-size: 14px;
+    max-width: 230px;
+    height: 140px;
+    padding: 12px 12px 16px;
   }
 
   .timeline-wedding-image {
-    width: 100px;
-    height: 100px;
+    width: 180px;
+    height: 180px;
   }
 
   .timeline-dot {
@@ -162,10 +213,12 @@
   }
 
   .timeline-year {
-    font-size: 16px;
+    font-size: 20px;
   }
 
   .timeline-text {
-    font-size: 13px;
+    font-size: 18px;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
   }
 }

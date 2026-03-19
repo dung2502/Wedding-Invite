@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import WordReveal from "./WordReveal";
 import TimelineModal from "./TimelineModal";
 import { useState } from "react";
+import { useScroll, useSpring } from "framer-motion";
+import { useRef } from "react";
 
 import story1 from "../../assets/images/bg.jpg";
 import story2 from "../../assets/images/bg.jpg";
@@ -35,6 +37,17 @@ const data = [
 ];
 
 export default function Story() {
+  const ref = useRef();
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start center", "end end"],
+  });
+
+  const scaleY = useSpring(scrollYProgress, {
+    stiffness: 80,
+    damping: 20,
+  });
   const [selected, setSelected] = useState(null);
 
   return (
@@ -68,15 +81,29 @@ export default function Story() {
         Nhớ bấm vào từng khoảnh khắc để xem hình ảnh của chúng mình nhé!
       </motion.p>
 
-      <div className="timeline">
+      <div className="timeline" ref={ref}>
+        <motion.div className="timeline-line-animated" style={{ scaleY }} />
         {data.map((item, index) => (
           <motion.div
             key={index}
-            className={`timeline-item ${index % 2 === 0 ? "left" : "right"}`}
-            initial={{ opacity: 0, x: index % 2 === 0 ? -80 : 80 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            className="timeline-item"
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: index * 0.2 }}
+            viewport={{ once: true }}
           >
+            <motion.div
+              className="timeline-card"
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              whileHover={{ scale: 1.05, y: -5 }}
+              transition={{ duration: 0.6 }}
+              onClick={() => setSelected(item)}
+            >
+              <h3 className="timeline-year">{item.year}</h3>
+              <p className="timeline-text">{item.text}</p>
+            </motion.div>
+
             <div className="timeline-dot">{item.icon}</div>
 
             {item.imageWedding && (
@@ -84,21 +111,12 @@ export default function Story() {
                 className="timeline-wedding-image"
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5 }}
+                whileHover={{ scale: 1.08, rotate: 1 }}
+                transition={{ duration: 0.6 }}
               >
                 <img src={item.imageWedding} alt="" />
               </motion.div>
             )}
-
-            <motion.div
-              className="timeline-card"
-              whileHover={{ scale: 1.05 }}
-              onClick={() => setSelected(item)}
-              style={{ cursor: "pointer" }}
-            >
-              <h3 className="timeline-year">{item.year}</h3>
-              <p className="timeline-text">{item.text}</p>
-            </motion.div>
           </motion.div>
         ))}
       </div>
