@@ -42,7 +42,7 @@
 
 .hero h3 {
   font-family: "Great Vibes", cursive;
-  font-size: clamp(14px, 3vw, 22px);
+  font-size: clamp(18px, 3vw, 22px);
   letter-spacing: 4px;
   font-weight: 300;
 }

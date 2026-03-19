@@ -33,10 +33,6 @@ export default function Footer() {
           </a>
         </div>
       </div>
-
-      <div className="copyright">
-        © 2026 Wedding Invitation • Made with Love
-      </div>
     </footer>
   );
 }
