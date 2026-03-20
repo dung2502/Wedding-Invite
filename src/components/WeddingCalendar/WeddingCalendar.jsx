@@ -47,7 +47,7 @@ export default function WeddingCalendar() {
           {days.map((d, i) => (
             <div key={i} className="calendar-day">
               {d === day ? (
-               <img src={heartGif} className="heart-gif" />
+               <img src={heartGif} className="heart-gif" alt="heart" />
               ) : (
                 d
               )}
