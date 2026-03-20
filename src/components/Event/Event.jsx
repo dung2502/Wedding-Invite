@@ -1,4 +1,5 @@
 import "./Event.css";
+import GetMarried from "../../assets/gif/GetMarried.gif";
 
 const EventItem = ({
   title,
@@ -9,9 +10,16 @@ const EventItem = ({
   lunar,
   locationTitle,
   address,
+  image,
 }) => {
   return (
     <div className="event-card">
+      {/* 👇 THÊM GIF */}
+      {image && (
+        <div className="event-image">
+          <img src={image} alt="wedding" />
+        </div>
+      )}
       <h3 className="event-card-title">{title}</h3>
 
       <p className="event-time">{time}</p>
@@ -60,7 +68,7 @@ export default function Event() {
           monthYear="08 - 2026"
           lunar="(Tức ngày 26 tháng 06 năm Bính Ngọ)"
           locationTitle="TƯ GIA NHÀ GÁI"
-            address={`Khu phố 4, Yên Cát, Thanh Hóa`}
+          address={`Khu phố 4, Yên Cát, Thanh Hóa`}
         />
 
         <div className="divider dashed" />
@@ -79,7 +87,7 @@ export default function Event() {
 
         <div className="divider dashed" />
 
-         {/* ===== TIỆC ĂN ===== */}
+        {/* ===== LỄ THÀNH HÔN ===== */}
         <EventItem
           title="LỄ THÀNH HÔN"
           time="Sáng : 10h00 - Chiều 16h00"
@@ -89,6 +97,7 @@ export default function Event() {
           lunar="(Tức ngày 27 tháng 06 năm Bính Ngọ)"
           locationTitle="TƯ GIA NHÀ TRAI"
           address={`Thôn Cầu, Xuân Bình, Thanh Hóa`}
+          image={GetMarried}
         />
 
         {/* ===== MAPS (GIỮ NGUYÊN) ===== */}
