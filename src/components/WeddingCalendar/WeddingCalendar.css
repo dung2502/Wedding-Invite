@@ -64,48 +64,6 @@
   width: 40px;
 }
 
-/* ❤️ HEART đẹp hơn + animation */
-.heart {
-  position: relative;
-  width: 34px;
-  height: 34px;
-  margin: auto;
-  background: #7a2d26;
-  transform: rotate(-45deg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  animation: pulse 1.5s infinite;
-}
-
-.heart span {
-  transform: rotate(45deg);
-  color: white;
-  font-size: 14px;
-  font-weight: bold;
-}
-
-/* tạo shape tim */
-.heart::before,
-.heart::after {
-  content: "";
-  position: absolute;
-  width: 34px;
-  height: 34px;
-  background: #7a2d26;
-  border-radius: 50%;
-}
-
-.heart::before {
-  top: -17px;
-  left: 0;
-}
-
-.heart::after {
-  left: 17px;
-  top: 0;
-}
-
 /* animation */
 @keyframes pulse {
   0% {
