@@ -6,24 +6,24 @@ export default function Gift() {
   const [fade, setFade] = useState(false);
 
   const handleClick = () => {
+    if (open) return;
+
     setOpen(true);
 
-    // ⏳ delay cho animation tim
-    setTimeout(() => {
-      setFade(true);
-    }, 1800);
+    // delay cho hiệu ứng tim
+    setTimeout(() => setFade(true), 1800);
 
-    // 🚀 chuyển trang
+    // redirect
     setTimeout(() => {
       window.location.href = "https://facebook.com";
     }, 2600);
   };
 
   return (
-    <section className="gift-simple">
+    <section className="gift">
       <h2 className="gift-title">Hộp Quà Cưới</h2>
 
-      <div className="gift-box-wrapper" onClick={handleClick}>
+      <div className="gift-wrapper" onClick={handleClick}>
         {/* 🎁 BOX */}
         <div className={`gift-box ${open ? "open" : ""}`}>
           <div className="lid left" />
@@ -40,17 +40,17 @@ export default function Gift() {
           </div>
         )}
 
-        {/* ↘️ ARROW */}
+        {/* ↘️ ARROW CTA */}
         {!open && (
-          <div className="gift-arrow">
-            <span>
+          <div className="gift-pointer">
+            <span className="gift-pointer-text">
               Click để gửi quà cho cô dâu chú rể
             </span>
           </div>
         )}
       </div>
 
-      {/* 🌫 FADE OUT */}
+      {/* 🌫 FADE */}
       {fade && <div className="fade-screen" />}
     </section>
   );

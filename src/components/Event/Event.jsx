@@ -1,76 +1,102 @@
 import "./Event.css";
 
+const EventItem = ({
+  title,
+  time,
+  dayLabel,
+  day,
+  monthYear,
+  lunar,
+  locationTitle,
+  address,
+}) => {
+  return (
+    <div className="event-card">
+      <h3 className="event-card-title">{title}</h3>
+
+      <p className="event-time">{time}</p>
+
+      <div className="event-date-row">
+        <span>{dayLabel}</span>
+        <span className="event-day">{day}</span>
+        <span>{monthYear}</span>
+      </div>
+
+      <p className="event-lunar">{lunar}</p>
+
+      <div className="event-location-box">
+        <p className="event-location-heading">ĐỊA ĐIỂM TỔ CHỨC</p>
+        <h4 className="event-location-title">{locationTitle}</h4>
+        <p className="event-location">{address}</p>
+      </div>
+    </div>
+  );
+};
+
 export default function Event() {
   return (
     <section className="event">
-
       <div className="event-container">
+        {/* ===== LỄ NẠP TÀI ===== */}
+        <EventItem
+          title="LỄ NẠP TÀI"
+          time="Vào hồi 14:00"
+          dayLabel="THỨ NĂM"
+          day="|  27  |"
+          monthYear="03 - 2026"
+          lunar="(Tức ngày 08 tháng 02 năm Bính Ngọ)"
+          locationTitle="TƯ GIA NHÀ GÁI"
+          address={`SN 70, Đường HH03, Hiệp Thành
+Hoằng Phú, Thanh Hóa`}
+        />
 
-        {/* ===== LỄ THÀNH HÔN ===== */}
-        <div className="event-block">
-          <h2 className="event-heading">LỄ THÀNH HÔN</h2>
+        <div className="divider dashed" />
 
-          <p className="event-time">VÀO LÚC 10H30 | THỨ BA</p>
+        {/* ===== TIỆC ĂN ===== */}
+        <EventItem
+          title="TIỆC ĂN"
+          time="Sáng : 10h00 - Chiều 16h00"
+          dayLabel="THỨ SÁU"
+          day="|  27  |"
+          monthYear="03 - 2026"
+          lunar="(Tức ngày 09 tháng 02 năm Bính Ngọ)"
+          locationTitle="TƯ GIA NHÀ GÁI"
+          address={`SN 70, Đường HH03, Hiệp Thành
+Hoằng Phú, Thanh Hóa`}
+        />
 
-          <div className="event-date">2 5 . 1 1 . 2 0 2 5</div>
+        <div className="divider dashed" />
 
-          <p className="event-lunar">(Tức ngày 06 Tháng 10 Năm Ất Tỵ)</p>
+        {/* ===== TIỆC ĂN ===== */}
+        <EventItem
+          title="TIỆC ĂN"
+          time="Sáng : 10h00 - Chiều 16h00"
+          dayLabel="THỨ SÁU"
+          day="|  27  |"
+          monthYear="03 - 2026"
+          lunar="(Tức ngày 09 tháng 02 năm Bính Ngọ)"
+          locationTitle="TƯ GIA NHÀ TRAI"
+          address={`SN 70, Đường HH03, Hiệp Thành
+Hoằng Phú, Thanh Hóa`}
+        />
 
-          <h3 className="event-location-title">TẠI TƯ GIA NHÀ TRAI</h3>
+        <div className="divider dashed" />
 
-          <p className="event-location">
-            Thôn Cầu - Bãi Trành<br />
-            Thanh Hóa
-          </p>
-        </div>
+         {/* ===== TIỆC ĂN ===== */}
+        <EventItem
+          title="LỄ THÀNH HÔN"
+          time="Sáng : 10h00 - Chiều 16h00"
+          dayLabel="THỨ SÁU"
+          day="|  27  |"
+          monthYear="03 - 2026"
+          lunar="(Tức ngày 09 tháng 02 năm Bính Ngọ)"
+          locationTitle="TƯ GIA NHÀ TRAI"
+          address={`SN 70, Đường HH03, Hiệp Thành
+Hoằng Phú, Thanh Hóa`}
+        />
 
-        <div className="divider" />
-
-        {/* ===== LỄ VU QUY ===== */}
-        <div className="event-block">
-          <h2 className="event-heading">LỄ VU QUY</h2>
-
-          <p className="event-time">VÀO LÚC 09H00 | THỨ BẢY</p>
-
-          <div className="event-date">2 2 . 1 1 . 2 0 2 5</div>
-
-          <p className="event-lunar">(Tức ngày 03 Tháng 10 Năm Ất Tỵ)</p>
-
-          <h3 className="event-location-title">TẠI TƯ GIA NHÀ GÁI</h3>
-
-          <p className="event-location">
-            Khu phố 4 - Yên Cát<br />
-            Thanh Hóa
-          </p>
-        </div>
-
-        <div className="divider" />
-
-        {/* ===== TIỆC ===== */}
-        <div className="event-block">
-          <h2 className="event-heading">BUỔI TIỆC CHUNG VUI</h2>
-
-          <p className="event-time">VÀO LÚC 17H00 | THỨ HAI</p>
-
-          <div className="event-date-big">
-            <span>Tháng 11</span>
-            <span className="day"> | 24 |</span>
-            <span>2025</span>
-          </div>
-
-          <p className="event-lunar">(Tức ngày 05 Tháng 10 Năm Ất Tỵ)</p>
-
-          <h3 className="event-location-title">TẠI TƯ GIA NHÀ GÁI</h3>
-
-          <p className="event-location">
-            Thôn Hồ - Xuân Bình - Thanh Hóa
-          </p>
-        </div>
-
-        {/* ===== MAPS ===== */}
+        {/* ===== MAPS (GIỮ NGUYÊN) ===== */}
         <div className="event-maps">
-
-          {/* Nhà trai */}
           <div className="map-card">
             <h4>📍 Nhà trai</h4>
 
@@ -88,7 +114,6 @@ export default function Event() {
             </a>
           </div>
 
-          {/* Nhà gái */}
           <div className="map-card">
             <h4>📍 Nhà gái</h4>
 
@@ -105,9 +130,7 @@ export default function Event() {
               Mở Google Maps
             </a>
           </div>
-
         </div>
-
       </div>
     </section>
   );

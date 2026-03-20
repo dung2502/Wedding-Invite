@@ -1,26 +1,35 @@
-/* layout */
-.gift-simple {
+/* ========================= */
+/* LAYOUT */
+/* ========================= */
+
+.gift {
   text-align: center;
-  padding: 50px 20px;
-   background:
+  padding: 60px 20px;
+  background:
     radial-gradient(1000px 380px at 50% 0%, rgba(233,30,99,0.10), transparent 60%),
     linear-gradient(180deg, #ffffff 0%, #fff8fb 55%, #ffffff 100%);
 }
 
 .gift-title {
-  font-size: 36px;
+  font-size: 38px;
   margin-bottom: 60px;
   font-family: "Dancing Script", cursive;
 }
 
-/* wrapper */
-.gift-box-wrapper {
+/* ========================= */
+/* WRAPPER */
+/* ========================= */
+
+.gift-wrapper {
   position: relative;
   display: inline-block;
   cursor: pointer;
 }
 
-/* 🎁 BOX */
+/* ========================= */
+/* BOX */
+/* ========================= */
+
 .gift-box {
   position: relative;
   width: 120px;
@@ -33,18 +42,19 @@
   width: 100%;
   height: 100%;
   background: #e91e63;
-  border-radius: 6px;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(233, 30, 99, 0.3);
 }
 
 /* lids */
 .lid {
   position: absolute;
-  top: -20px;
+  top: -22px;
   width: 50%;
-  height: 25px;
+  height: 26px;
   background: #ff4d88;
-  border-radius: 4px;
-  transition: 0.6s ease;
+  border-radius: 6px;
+  transition: transform 0.6s ease;
 }
 
 .lid.left {
@@ -57,16 +67,19 @@
   transform-origin: right;
 }
 
-/* 🎬 OPEN EFFECT */
+/* OPEN */
 .gift-box.open .lid.left {
-  transform: rotate(-70deg) translateX(-10px);
+  transform: rotate(-75deg) translateX(-10px);
 }
 
 .gift-box.open .lid.right {
-  transform: rotate(70deg) translateX(10px);
+  transform: rotate(75deg) translateX(10px);
 }
 
-/* 💖 HEARTS */
+/* ========================= */
+/* HEARTS */
+/* ========================= */
+
 .hearts {
   position: absolute;
   left: 50%;
@@ -91,35 +104,56 @@
   }
   100% {
     transform: translate(
-      calc((var(--i) - 6) * 15px),
-      -150px
+      calc((var(--i) - 6) * 16px),
+      -160px
     ) scale(1.2);
     opacity: 0;
   }
 }
 
-/* ↘️ ARROW 45 độ */
-.gift-arrow {
+/* ========================= */
+/* ARROW CTA (Overlay) */
+/* ========================= */
+
+.gift-pointer {
   position: absolute;
-  top: 30px;
-  animation: pulse 0.8s infinite;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 140px;
+  height: 160px;
+  z-index: 3;
+  pointer-events: none; /* keep click on wrapper */
 }
 
-.gift-arrow span {
-  font-size: 14.3px;
-  color: white  ;
-  display: block;
-  max-width: 220px;
+/* TEXT (on top of box) */
+.gift-pointer-text {
+  position: absolute;
+  left: 50%;
+  top: 50px;
+  transform: translate(-50%, -50%);
+  width: 120px;
+  padding: 6px 8px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.35);
+  color: #ffffff;
+  font-size: 14px;
+  line-height: 1.1;
+  text-align: center;
   font-family: "Dancing Script", cursive;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
 }
 
-/* pulse */
-@keyframes pulse {
-  0%,100% { opacity: 1; }
-  50% { opacity: 0.5; }
+@keyframes arrowBounce {
+  0%,100% { transform: translateX(-50%) translate(0, 0); }
+  50% { transform: translateX(-50%) translate(-10px, 10px) scale(1.05); }
 }
 
-/* 🌫 FADE */
+/* ========================= */
+/* FADE */
+/* ========================= */
+
 .fade-screen {
   position: fixed;
   inset: 0;
@@ -131,4 +165,43 @@
 @keyframes fadeOut {
   from { opacity: 0; }
   to { opacity: 1; }
+}
+
+/* ========================= */
+/* RESPONSIVE */
+/* ========================= */
+
+@media (max-width: 768px) {
+  .gift-title {
+    font-size: 28px;
+  }
+
+  .gift-pointer {
+    width: 130px;
+    height: 150px;
+  }
+
+  .gift-pointer-arrow {
+    top: 85px;
+  }
+
+  .gift-pointer-text {
+    top: 48px;
+    width: 110px;
+    font-size: 13px;
+    padding: 6px 7px;
+  }
+}
+
+@media (max-width: 480px) {
+  .arrow-svg {
+    width: 42px;
+    height: 42px;
+  }
+
+  .gift-pointer-text {
+    font-size: 12px;
+    width: 102px;
+    padding: 6px 6px;
+  }
 }

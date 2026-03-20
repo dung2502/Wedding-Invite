@@ -1,76 +1,93 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Be+Vietnam+Pro:wght@300;400;500&display=swap');
 
 .event {
-  padding: 50px 20px;
-  text-align: center;
-  background:
-    radial-gradient(1000px 380px at 50% 0%, rgba(233,30,99,0.08), transparent 60%),
-    linear-gradient(180deg, #ffffff 0%, #faf7fb 55%, #ffffff 100%);
+  padding: 40px 20px;
+  background: #f9f6f2;
   font-family: 'Be Vietnam Pro', sans-serif;
 }
 
 .event-container {
-  max-width: 650px;
+  max-width: 520px;
   margin: auto;
 }
 
-.event-block {
-  margin-bottom: 40px;
+/* ===== CARD ===== */
+.event-card {
+  text-align: center;
+  margin-bottom: 30px;
 }
 
-/* ===== TITLE ===== */
-.event-heading {
+.event-card-title {
   font-family: 'Playfair Display', serif;
-  font-size: 30px;
   letter-spacing: 2px;
-  margin-bottom: 12px;
+  font-size: 22px;
+  margin-bottom: 10px;
 }
 
-/* ===== TEXT ===== */
+/* ===== TIME ===== */
 .event-time {
   font-size: 15px;
-  letter-spacing: 1px;
+  margin-bottom: 10px;
 }
 
-.event-date {
-  font-size: 22px;
-  letter-spacing: 8px;
-  margin: 10px 0;
-}
-
-.event-date-big {
+/* ===== DATE ===== */
+.event-date-row {
   display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin: 15px 0;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #8b3a2b;
+  border-bottom: 1px solid #8b3a2b;
+  padding: 10px 0;
+  margin: 10px 0;
+  font-size: 14px;
 }
 
-.event-date-big .day {
-  font-size: 44px;
+.event-day {
+  font-size: 42px;
   font-family: 'Playfair Display', serif;
+  color: #8b3a2b;
 }
 
+/* ===== LUNAR ===== */
 .event-lunar {
   font-style: italic;
+  font-size: 13px;
   opacity: 0.7;
 }
 
+/* ===== LOCATION BOX ===== */
+.event-location-box {
+  margin-top: 15px;
+  border: 2px solid #8b3a2b;
+  border-radius: 10px;
+  padding: 15px;
+}
+
+.event-location-heading {
+  font-size: 13px;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+}
+
 .event-location-title {
-  margin-top: 12px;
-  font-weight: 600;
+  font-family: 'Playfair Display', serif;
+  color: #8b3a2b;
+  margin-bottom: 5px;
 }
 
 .event-location {
-  margin-top: 6px;
   line-height: 1.6;
+  white-space: pre-line;
 }
 
 /* ===== DIVIDER ===== */
 .divider {
-  width: 60%;
-  height: 1px;
-  background: rgba(0,0,0,0.15);
-  margin: 30px auto;
+  margin: 25px auto;
+  width: 100%;
+}
+
+.divider.dashed {
+  border-top: 2px dashed #8b3a2b;
 }
 
 /* ===== MAP ===== */
@@ -109,11 +126,7 @@
 
 /* ===== MOBILE ===== */
 @media (max-width: 600px) {
-  .event-date {
-    letter-spacing: 5px;
-  }
-
-  .event-date-big .day {
+  .event-day {
     font-size: 34px;
   }
 }

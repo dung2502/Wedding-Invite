@@ -85,7 +85,6 @@
 
 /* CARD */
 .timeline-card {
-  backdrop-filter: blur(14px);
   font-size: 18px;
   padding: 12px;
   border-radius: 16px;
