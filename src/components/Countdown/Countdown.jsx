@@ -3,6 +3,8 @@ import "./Countdown.css";
 import useCountdown from "./useCountdown";
 import FlipNumber from "./FlipNumber";
 import confetti from "canvas-confetti";
+import brideGif from "../../assets/gif/bride.gif";
+import groomGif from "../../assets/gif/groom.gif";
 
 export default function Countdown() {
   const weddingDate = new Date("Aug 08 2026 00:00:00").getTime();
@@ -53,7 +55,7 @@ export default function Countdown() {
             <div className="progress-track">
               {/* Bride */}
               <div className={`bride ${time?.progress >= 95 ? "love" : ""}`}>
-                👰
+                <img src={brideGif} alt="bride" />
               </div>
 
               {/* Groom */}
@@ -61,9 +63,8 @@ export default function Countdown() {
                 className={`groom ${time?.progress >= 95 ? "love" : ""}`}
                 style={{ left: `${time?.progress || 0}%` }}
               >
-                🤵‍♂️
+                <img src={groomGif} alt="groom" />
               </div>
-
               {/* Progress */}
               <div
                 className="progress-bar"
