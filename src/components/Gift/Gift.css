@@ -11,8 +11,7 @@
 }
 
 .gift-title {
-  font-size: 38px;
-  margin-bottom: 60px;
+  font-size: 40px;
   font-family: "Dancing Script", cursive;
 }
 
@@ -22,7 +21,6 @@
 
 .gift-wrapper {
   position: relative;
-  display: inline-block;
   cursor: pointer;
 }
 
@@ -32,8 +30,8 @@
 
 .gift-box {
   position: relative;
-  width: 120px;
-  height: 100px;
+  width: 180px;
+  height: 150px;
   margin: auto;
 }
 
@@ -49,9 +47,9 @@
 /* lids */
 .lid {
   position: absolute;
-  top: -22px;
+  top: -32px;
   width: 50%;
-  height: 26px;
+  height: 36px;
   background: #ff4d88;
   border-radius: 6px;
   transition: transform 0.6s ease;
@@ -102,42 +100,26 @@
   50% {
     opacity: 1;
   }
-  100% {
+   100% {
     transform: translate(
-      calc((var(--i) - 6) * 16px),
-      -160px
-    ) scale(1.2);
+      calc((var(--i) - 6) * 22px),  
+      -220px                      
+    ) scale(1.4);
     opacity: 0;
   }
 }
 
-/* ========================= */
-/* ARROW CTA (Overlay) */
-/* ========================= */
-
-.gift-pointer {
-  position: absolute;
-  left: 50%;
-  top: 0;
-  transform: translateX(-50%);
-  width: 140px;
-  height: 160px;
-  z-index: 3;
-  pointer-events: none; /* keep click on wrapper */
-}
-
-/* TEXT (on top of box) */
 .gift-pointer-text {
   position: absolute;
   left: 50%;
   top: 50px;
   transform: translate(-50%, -50%);
-  width: 120px;
-  padding: 6px 8px;
-  border-radius: 12px;
+  width: 160px;
+  padding: 10px 12px;
+  border-radius: 16px;
   background: rgba(255, 255, 255, 0.35);
   color: #ffffff;
-  font-size: 14px;
+  font-size: 20px;
   line-height: 1.1;
   text-align: center;
   font-family: "Dancing Script", cursive;
@@ -173,7 +155,7 @@
 
 @media (max-width: 768px) {
   .gift-title {
-    font-size: 28px;
+    font-size: 34px;
   }
 
   .gift-pointer {
@@ -200,8 +182,8 @@
   }
 
   .gift-pointer-text {
-    font-size: 12px;
-    width: 102px;
+    font-size: 20px;
+    width: 150px;
     padding: 6px 6px;
   }
 }

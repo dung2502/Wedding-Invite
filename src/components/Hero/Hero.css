@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Ephesis&display=swap');
+
 .hero {
   min-height: 100svh;
   background-size: cover;
@@ -13,6 +15,7 @@
   position: relative;
   overflow: hidden;
 }
+
 
 /* overlay cinematic */
 .overlay {
@@ -34,10 +37,17 @@
 
 /* title */
 .hero h1 {
-  font-family: "Dancing Script", cursive;
-  font-size: clamp(38px, 6vw, 64px);
+  font-family: "Ephesis", cursive;
+  font-weight: 600;
+  font-style: normal;
+  font-size: clamp(35px, 6vw, 64px);
   margin: 20px 0;
   text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.amp {
+  margin: 0 12px; /* chỉnh khoảng cách tại đây */
+  display: inline-block;
 }
 
 .hero h3 {

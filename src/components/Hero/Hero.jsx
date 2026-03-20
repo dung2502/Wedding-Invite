@@ -63,7 +63,7 @@ export default function Hero() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 1.2 , ease: "easeOut" }}
         >
-          Đức Hải & Minh Ánh
+          Đức Hải <span className="amp">&</span> Minh Ánh
         </motion.h1>
 
         {/* 📅 Date */}

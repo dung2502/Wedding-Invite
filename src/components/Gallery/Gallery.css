@@ -17,6 +17,8 @@
   gap: 12px;
   font-size: 40px;
   font-weight: 600;
+  font-family: "Dancing Script", cursive;
+  margin-bottom: 0px !important;
 }
 
 .title-gif {
