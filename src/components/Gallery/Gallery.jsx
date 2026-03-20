@@ -14,6 +14,7 @@ import story2 from "../../assets/images/bg.jpg";
 import story3 from "../../assets/images/bg.jpg";
 import story4 from "../../assets/images/bg.jpg";
 import story5 from "../../assets/images/bg.jpg";
+import decoGif from "../../assets/gif/wedding6gif.gif";
 
 const images = [
   { src: story1, category: "love" },
@@ -31,9 +32,7 @@ export default function Gallery() {
   const [open, setOpen] = useState(false);
 
   const filtered =
-    filter === "all"
-      ? images
-      : images.filter((img) => img.category === filter);
+    filter === "all" ? images : images.filter((img) => img.category === filter);
 
   // 🔥 AUTO SLIDE
   useEffect(() => {
@@ -51,15 +50,17 @@ export default function Gallery() {
     if (info.offset.x < -100) {
       setIndex((prev) => (prev + 1) % filtered.length);
     } else if (info.offset.x > 100) {
-      setIndex((prev) =>
-        prev === 0 ? filtered.length - 1 : prev - 1
-      );
+      setIndex((prev) => (prev === 0 ? filtered.length - 1 : prev - 1));
     }
   };
 
   return (
     <section className="gallery">
-      <h2 className="gallery-title">Album</h2>
+      <h2 className="gallery-title">
+        <img src={decoGif} alt="decor" className="title-gif left" />
+        Album
+        <img src={decoGif} alt="decor" className="title-gif right" />
+      </h2>
 
       {/* PARALLAX BACKGROUND */}
       <div

@@ -11,9 +11,28 @@
 }
 
 .gallery-title {
-  font-family: "Dancing Script", cursive;
-  font-size: 60px;
-  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: 40px;
+  font-weight: 600;
+}
+
+.title-gif {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 10px rgba(255, 200, 200, 0.6));
+}
+
+/* nếu muốn lệch nhẹ cho nghệ thuật */
+.title-gif.left {
+  transform: rotate(-10deg);
+}
+
+.title-gif.right {
+  transform: rotate(10deg);
 }
 
 /* FILTER */
@@ -97,18 +116,6 @@
   transform: scale(1.1);
   border: 2px solid #e91e63;
 }
-
-  /* BACKGROUND PARALLAX */
-  .bg-blur {
-    position: absolute;
-    inset: 0;
-    background-size: cover;
-    background-position: center;
-    filter: blur(80px);
-    opacity: 0.35;
-    z-index: 0;
-    transition: 0.6s;
-  }
 
 /* overlay để giữ chữ rõ */
 .gallery {

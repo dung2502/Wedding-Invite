@@ -1,0 +1,140 @@
+.calendar {
+  text-align: center;
+  padding: 60px 20px;
+  background:
+    radial-gradient(
+      1000px 380px at 50% 0%,
+      rgba(233, 30, 99, 0.1),
+      transparent 60%
+    ),
+    linear-gradient(180deg, #ffffff 0%, #fff8fb 55%, #ffffff 100%);
+  padding: 50px 30px 80px;
+}
+
+.calendar-title {
+  font-size: 42px;
+  color: #7a2d26;
+  font-family: "Dancing Script", cursive;
+  margin-bottom: 30px;
+}
+
+/* BOX */
+.calendar-box {
+  max-width: 520px;
+  margin: auto;
+  border: 2px solid #a3ad91;
+  border-radius: 8px;
+  overflow: hidden;
+  background: white;
+}
+
+/* HEADER */
+.calendar-header {
+  background: #7a2d26;
+  color: white;
+  font-size: 28px;
+  padding: 15px;
+  font-weight: bold;
+}
+
+/* WEEK */
+.calendar-week {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  background: #7a2d26;
+  color: white;
+  padding: 10px 0;
+  font-size: 14px;
+}
+
+/* GRID */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  padding: 15px;
+  gap: 10px;
+}
+
+.calendar-day {
+  color: #8c9a84;
+  font-size: 16px;
+}
+
+.heart-gif {
+  width: 40px;
+}
+
+/* ❤️ HEART đẹp hơn + animation */
+.heart {
+  position: relative;
+  width: 34px;
+  height: 34px;
+  margin: auto;
+  background: #7a2d26;
+  transform: rotate(-45deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: pulse 1.5s infinite;
+}
+
+.heart span {
+  transform: rotate(45deg);
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* tạo shape tim */
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  background: #7a2d26;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -17px;
+  left: 0;
+}
+
+.heart::after {
+  left: 17px;
+  top: 0;
+}
+
+/* animation */
+@keyframes pulse {
+  0% {
+    transform: rotate(-45deg) scale(1);
+  }
+  50% {
+    transform: rotate(-45deg) scale(1.15);
+  }
+  100% {
+    transform: rotate(-45deg) scale(1);
+  }
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+  .calendar-title {
+    font-size: 30px;
+  }
+
+  .calendar-box {
+    max-width: 100%;
+  }
+
+  .calendar-day {
+    font-size: 14px;
+  }
+
+  .heart {
+    width: 28px;
+    height: 28px;
+  }
+}

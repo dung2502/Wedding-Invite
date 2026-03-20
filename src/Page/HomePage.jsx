@@ -3,6 +3,7 @@ import { Toaster } from "react-hot-toast";
 import Navbar from "../components/Navbar/Navbar";
 import Hero from "../components/Hero/Hero";
 import Countdown from "../components/Countdown/Countdown";
+import AboutCouple from "../components/AboutCouple/AboutCouple";
 import Story from "../components/Story/Story";
 import Gallery from "../components/Gallery/Gallery";
 import Event from "../components/Event/Event";
@@ -10,6 +11,7 @@ import Gift from "../components/Gift/Gift";
 import RSVP from "../components/RSVP/RSVP";
 import Footer from "../components/Footer/Footer";
 import weddingMusic from "../assets/music/wedding.mp3";
+import WeddingCalendar from "../components/WeddingCalendar/WeddingCalendar";
 
 function HomePage() {
   const audioRef = useRef(null);
@@ -33,8 +35,10 @@ function HomePage() {
       <Navbar />
       <Hero />
       <Countdown />
+      <AboutCouple />
       <Story />
       <Gallery />
+      <WeddingCalendar />
       <Event />
       <Gift />
       <RSVP />

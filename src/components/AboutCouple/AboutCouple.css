@@ -1,0 +1,190 @@
+.about {
+  padding: 50px 20px;
+  background:
+    radial-gradient(
+      1000px 380px at 50% 0%,
+      rgba(233, 30, 99, 0.1),
+      transparent 60%
+    ),
+    linear-gradient(180deg, #ffffff 0%, #fff8fb 55%, #ffffff 100%);
+  padding: 50px 30px 80px;
+}
+
+.about-title {
+  text-align: center;
+  font-size: 60px;
+  font-family: "Dancing Script", cursive;
+  color: #7a2d26;
+  margin-bottom: 60px;
+}
+
+/* ROW */
+.about-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  margin-bottom: 80px;
+  flex-wrap: wrap;
+}
+
+.about-row.reverse {
+  flex-direction: row-reverse;
+}
+
+@keyframes floatSoft {
+  0% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-8px) scale(1.05); }
+  100% { transform: translateY(0px) scale(1); }
+}
+
+.ring-gif,
+.flower-gif {
+  animation: floatSoft 3.5s ease-in-out infinite;
+}
+
+/* IMAGE */
+.about-img img {
+  width: 320px;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* CARD */
+.about-card {
+  position: relative;
+  max-width: 350px;
+  padding: 30px;
+  border: 2px solid #7a2d26;
+  background: white;
+}
+
+.role {
+  display: block;
+  color: #7a2d26;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.name {
+  font-size: 32px;
+  font-family: "Dancing Script", cursive;
+  color: #7a2d26;
+  margin-bottom: 15px;
+}
+
+.about-card p {
+  color: #555;
+  line-height: 1.6;
+}
+
+/* GIF RING */
+.ring-gif {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  width: 100px;
+}
+
+/* GIF FLOWER */
+.flower-gif {
+  position: absolute;
+  bottom: -20px;
+  left: -20px;
+  width: 100px;
+}
+
+/* ===== MOBILE (<= 768px) ===== */
+@media (max-width: 768px) {
+  .about {
+    padding: 40px 10px;
+  }
+
+  .about-title {
+    font-size: 36px;
+    margin-bottom: 40px;
+  }
+
+  .about-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 👈 giữ 2 cột */
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 50px;
+  }
+
+  /* vẫn cho đảo chiều */
+  .about-row.reverse {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .about-row.reverse * {
+    direction: ltr;
+  }
+
+  /* IMAGE */
+  .about-img img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  /* CARD */
+  .about-card {
+    padding: 15px;
+    max-width: 100%;
+    border-width: 1.5px;
+  }
+
+  .role {
+    font-size: 13px;
+  }
+
+  .name {
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+
+  .about-card p {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  /* GIF */
+  .ring-gif,
+  .flower-gif {
+    width: 55px;
+    bottom: -40px;
+  }
+
+  .ring-gif {
+    right: -8px;
+  }
+
+  .flower-gif {
+    left: -8px;
+  }
+}
+
+/* ===== SMALL MOBILE (<= 480px) ===== */
+@media (max-width: 480px) {
+  .about-title {
+    font-size: 36px;
+  }
+
+  .name {
+    font-size: 22px;
+  }
+
+  .about-card {
+    padding: 16px;
+  }
+
+  .ring-gif,
+  .flower-gif {
+    width: 60px;
+    opacity: 0.9;
+  }
+}
