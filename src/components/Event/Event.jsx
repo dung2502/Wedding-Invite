@@ -42,12 +42,11 @@ export default function Event() {
           title="LỄ NẠP TÀI"
           time="Vào hồi 14:00"
           dayLabel="THỨ NĂM"
-          day="|  27  |"
-          monthYear="03 - 2026"
-          lunar="(Tức ngày 08 tháng 02 năm Bính Ngọ)"
+          day="|  05  |"
+          monthYear="08 - 2026"
+          lunar="(Tức ngày 23 tháng 06 năm Bính Ngọ)"
           locationTitle="TƯ GIA NHÀ GÁI"
-          address={`SN 70, Đường HH03, Hiệp Thành
-Hoằng Phú, Thanh Hóa`}
+          address={`Khu phố 4, Yên Cát, Thanh Hóa`}
         />
 
         <div className="divider dashed" />
@@ -57,12 +56,11 @@ Hoằng Phú, Thanh Hóa`}
           title="TIỆC ĂN"
           time="Sáng : 10h00 - Chiều 16h00"
           dayLabel="THỨ SÁU"
-          day="|  27  |"
-          monthYear="03 - 2026"
-          lunar="(Tức ngày 09 tháng 02 năm Bính Ngọ)"
+          day="|  07  |"
+          monthYear="08 - 2026"
+          lunar="(Tức ngày 26 tháng 06 năm Bính Ngọ)"
           locationTitle="TƯ GIA NHÀ GÁI"
-          address={`SN 70, Đường HH03, Hiệp Thành
-Hoằng Phú, Thanh Hóa`}
+            address={`Khu phố 4, Yên Cát, Thanh Hóa`}
         />
 
         <div className="divider dashed" />
@@ -72,12 +70,11 @@ Hoằng Phú, Thanh Hóa`}
           title="TIỆC ĂN"
           time="Sáng : 10h00 - Chiều 16h00"
           dayLabel="THỨ SÁU"
-          day="|  27  |"
-          monthYear="03 - 2026"
-          lunar="(Tức ngày 09 tháng 02 năm Bính Ngọ)"
+          day="|  07  |"
+          monthYear="08 - 2026"
+          lunar="(Tức ngày 26 tháng 06 năm Bính Ngọ)"
           locationTitle="TƯ GIA NHÀ TRAI"
-          address={`SN 70, Đường HH03, Hiệp Thành
-Hoằng Phú, Thanh Hóa`}
+          address={`Thôn Cầu, Xuân Bình, Thanh Hóa`}
         />
 
         <div className="divider dashed" />
@@ -87,12 +84,11 @@ Hoằng Phú, Thanh Hóa`}
           title="LỄ THÀNH HÔN"
           time="Sáng : 10h00 - Chiều 16h00"
           dayLabel="THỨ SÁU"
-          day="|  27  |"
-          monthYear="03 - 2026"
-          lunar="(Tức ngày 09 tháng 02 năm Bính Ngọ)"
+          day="|  08  |"
+          monthYear="08 - 2026"
+          lunar="(Tức ngày 27 tháng 06 năm Bính Ngọ)"
           locationTitle="TƯ GIA NHÀ TRAI"
-          address={`SN 70, Đường HH03, Hiệp Thành
-Hoằng Phú, Thanh Hóa`}
+          address={`Thôn Cầu, Xuân Bình, Thanh Hóa`}
         />
 
         {/* ===== MAPS (GIỮ NGUYÊN) ===== */}

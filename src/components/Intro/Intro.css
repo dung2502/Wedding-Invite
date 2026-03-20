@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Be+Vietnam+Pro:wght@300;400;500&display=swap');
+
+.intro {
+  background: #8b2c1d;
+  padding: 60px 20px;
+  color: #fff;
+  text-align: center;
+  font-family: 'Be Vietnam Pro', sans-serif;
+}
+
+.intro-container {
+  max-width: 520px;
+  margin: auto;
+}
+
+/* HEADER */
+.intro-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+/* GIF */
+.cheers {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.cheers.left {
+  transform: rotate(-10deg);
+}
+
+.cheers.right {
+  transform: rotate(10deg);
+}
+
+/* ICON */
+.intro-icon {
+  font-size: 22px;
+  margin-bottom: 10px;
+  opacity: 0.9;
+}
+
+/* TITLE */
+.intro-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  text-decoration: underline;
+}
+
+/* TEXT */
+.intro-text {
+  font-size: 15px;
+  line-height: 1.7;
+  opacity: 0.95;
+  margin-bottom: 40px;
+}
+
+/* IMAGE WRAPPER */
+.intro-image-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+/* BORDER phía sau */
+.image-border {
+  position: absolute;
+  top: -12px;
+  left: -12px;
+  width: 100%;
+  height: 100%;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  z-index: 1;
+}
+
+/* IMAGE */
+.intro-image {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  border-radius: 10px;
+  z-index: 2;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.intro-image:hover {
+  transform: scale(1.03);
+}

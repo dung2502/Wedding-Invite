@@ -7,11 +7,12 @@ import AboutCouple from "../components/AboutCouple/AboutCouple";
 import Story from "../components/Story/Story";
 import Gallery from "../components/Gallery/Gallery";
 import Event from "../components/Event/Event";
-import Gift from "../components/Gift/Gift";
-import RSVP from "../components/RSVP/RSVP";
+import Gift from "../components/Gift/Gift"; 
 import Footer from "../components/Footer/Footer";
 import weddingMusic from "../assets/music/wedding.mp3";
 import WeddingCalendar from "../components/WeddingCalendar/WeddingCalendar";
+import Intro from "../components/Intro/Intro";
+import ThankYou from "../components/ThankYou/ThankYou";
 
 function HomePage() {
   const audioRef = useRef(null);
@@ -41,8 +42,8 @@ function HomePage() {
       <WeddingCalendar />
       <Event />
       <Gift />
-      <RSVP />
-
+      <Intro/>
+      <ThankYou />
       {/* 👉 truyền xuống Footer */}
       <Footer
         audioRef={audioRef}
