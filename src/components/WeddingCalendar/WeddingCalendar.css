@@ -18,6 +18,56 @@
   margin-bottom: 30px;
 }
 
+/* ========================= */
+/* HEADER ROW */
+/* ========================= */
+.calendar-header-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  max-width: 700px;
+  margin: 0 auto 30px;
+  gap: 20px;
+}
+
+/* ========================= */
+/* TITLE BẬC THANG */
+/* ========================= */
+.calendar-title {
+  font-size: 42px;
+  color: #7a2d26;
+  font-family: "Dancing Script", cursive;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.calendar-title span:nth-child(2) {
+  margin-left: 40px; /* 👈 tạo bậc thang */
+}
+
+/* ========================= */
+/* GIF */
+/* ========================= */
+.calendar-decor img {
+  width: clamp(100px, 18vw, 180px);
+  height: auto;
+  animation: floatCouple 4s ease-in-out infinite;
+}
+
+/* animation nhẹ */
+@keyframes floatCouple {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
 /* BOX */
 .calendar-box {
   max-width: 520px;
@@ -83,6 +133,23 @@
     font-size: 30px;
   }
 
+  .calendar-header-row {
+    text-align: center;
+  }
+
+  .calendar-title {
+    align-items: center;
+  }
+
+  .calendar-title span:nth-child(2) {
+    margin-left: 20px; 
+  }
+
+  .calendar-decor img {
+    width: 200px;
+    margin-top: 10px;
+  }
+
   .calendar-box {
     max-width: 100%;
   }
@@ -94,5 +161,19 @@
   .heart {
     width: 28px;
     height: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .calendar-title {
+    font-size: 38px;
+  }
+
+  .calendar-title span:nth-child(2) {
+    margin-left: 15px;
+  }
+
+  .calendar-decor img {
+    width: 160px;
   }
 }

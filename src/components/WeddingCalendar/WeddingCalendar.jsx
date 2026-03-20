@@ -1,5 +1,6 @@
 import "./WeddingCalendar.css";
 import heartGif from "../../assets/gif/heart.gif";
+import coupleGif from "../../assets/gif/wedding5gif.gif";
 
 export default function WeddingCalendar() {
   const weddingDate = new Date("2026-08-08");
@@ -8,14 +9,11 @@ export default function WeddingCalendar() {
   const month = weddingDate.getMonth(); // 0-11
   const day = weddingDate.getDate();
 
-  // Lấy ngày đầu tháng
   const firstDay = new Date(year, month, 1).getDay(); // CN = 0
   const startDay = firstDay === 0 ? 6 : firstDay - 1; // chuyển sang T2
 
-  // Tổng số ngày trong tháng
   const totalDays = new Date(year, month + 1, 0).getDate();
 
-  // Tạo array calendar
   const days = [
     ...Array(startDay).fill(""),
     ...Array.from({ length: totalDays }, (_, i) => i + 1),
@@ -23,7 +21,18 @@ export default function WeddingCalendar() {
 
   return (
     <section className="calendar">
-      <h2 className="calendar-title">Together forever</h2>
+      <div className="calendar-header-row">
+        {/* TITLE */}
+        <h2 className="calendar-title">
+          <span>Together</span>
+          <span>forever</span>
+        </h2>
+
+        {/* GIF */}
+        <div className="calendar-decor">
+          <img src={coupleGif} alt="couple" />
+        </div>
+      </div>
 
       <div className="calendar-box">
         {/* HEADER */}
@@ -47,7 +56,7 @@ export default function WeddingCalendar() {
           {days.map((d, i) => (
             <div key={i} className="calendar-day">
               {d === day ? (
-               <img src={heartGif} className="heart-gif" alt="heart" />
+                <img src={heartGif} className="heart-gif" alt="heart" />
               ) : (
                 d
               )}

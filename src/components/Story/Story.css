@@ -26,7 +26,7 @@
 .story__subtitle {
   font-size: 24px;
   max-width: 720px;
-  margin: 0 auto 44px;
+  margin: 0 auto 14px;
   opacity: 0.75;
   text-align: center;
 }
@@ -218,11 +218,66 @@
 }
 
 /* ========================= */
+/* DECORATION GIF */
+/* ========================= */
+
+.story-decor {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none; /* không ảnh hưởng click */
+  opacity: 0.85;
+}
+
+.story-decor img {
+  width: clamp(80px, 10vw, 140px);
+  height: auto;
+  animation: floatLetter 6s ease-in-out infinite;
+}
+
+/* vị trí trái */
+.decor-left {
+  top: 40px;
+  left: 5%;
+}
+
+/* vị trí phải */
+.decor-right {
+  bottom: 40px;
+  right: 5%;
+  animation-delay: 2s;
+}
+
+.decor-right-upper {
+  top: 35%;
+  right: 2%;
+  transform: translateY(-50%);
+}
+
+.decor-left-lower{
+  top: 70%;
+  left: 2%;
+  transform: translateY(-50%);
+}
+
+/* animation bay nhẹ */
+@keyframes floatLetter {
+  0% {
+    transform: translateY(0px) rotate(-5deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(5deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(-5deg);
+  }
+}
+
+/* ========================= */
 /* MOBILE */
 /* ========================= */
 
 @media (max-width: 768px) {
-   .timeline-item {
+  .timeline-item {
     grid-template-columns: minmax(0, 1fr) 30px minmax(0, 1fr);
     gap: 6px;
     margin: 35px 0;
@@ -252,9 +307,31 @@
     -webkit-line-clamp: 2;
     line-clamp: 2;
   }
+
+  .story-decor img {
+    width: 80px;
+  }
+
+  .decor-left {
+    top: 20px;
+    left: 2%;
+  }
+
+  .decor-right {
+    bottom: 40px;
+    right: 5%;
+    animation-delay: 2s;
+  }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 480px) {
+  .story-decor img {
+    width: 70px;
+    opacity: 0.7;
+  }
+}
+
+@media (max-width: 470px) {
   .timeline-item {
     grid-template-columns: 1fr 35px 1fr; /* line nhỏ lại */
     margin: 30px 0;

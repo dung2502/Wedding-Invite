@@ -12,6 +12,7 @@ import story2 from "../../assets/images/bg.jpg";
 import story3 from "../../assets/images/bg.jpg";
 import story4 from "../../assets/images/bg.jpg";
 import story5 from "../../assets/images/bg.jpg";
+import letterGif from "../../assets/gif/Email.gif";
 
 const data = [
   {
@@ -87,6 +88,23 @@ export default function Story() {
       >
         Nhớ bấm vào từng khoảnh khắc để xem hình ảnh của tụi mình nhé!
       </motion.p>
+
+      {/* DECORATION GIF */}
+      <div className="story-decor decor-left">
+        <img src={letterGif} alt="love letter" />
+      </div>
+
+      <div className="story-decor decor-right">
+        <img src={letterGif} alt="love letter" />
+      </div>
+
+      <div className="story-decor decor-right-upper">
+        <img src={letterGif} alt="love letter" />
+      </div>
+
+       <div className="story-decor decor-left-lower">
+        <img src={letterGif} alt="love letter" />
+      </div>
 
       <div className="timeline" ref={ref}>
         <motion.div className="timeline-line-animated" style={{ scaleY }} />
