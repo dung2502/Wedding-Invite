@@ -7,9 +7,9 @@ import { useScroll, useSpring } from "framer-motion";
 import { useRef } from "react";
 import { useTransform } from "framer-motion";
 
-import story1 from "../../assets/images/story1.jpg";
-import story2 from "../../assets/images/story2.jpg";
-import story3 from "../../assets/images/story3.jpg";
+import story1 from "../../assets/images/optimized/story1.webp";
+import story2 from "../../assets/images/optimized/story2.webp";
+import story3 from "../../assets/images/optimized/story3.webp";
 import letterGif from "../../assets/gif/Email.gif";
 
 const data = [

@@ -10,7 +10,7 @@ import {
 import confetti from "canvas-confetti";
 import "./Footer.css";
 
-import couple from "../../assets/images/footer.jpg";
+import couple from "../../assets/images/optimized/footer.webp";
 
 export default function Footer({ audioRef, isPlaying, setIsPlaying }) {
   const footerRef = useRef(null);

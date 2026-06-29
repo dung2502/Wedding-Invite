@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import hero from "../../assets/images/bg.jpg";
+import hero from "../../assets/images/optimized/bg.webp";
 import Petals from "./Petals";
 import "./Hero.css";
 import WordReveal from "./WordReveal";
@@ -95,8 +95,8 @@ export default function Hero() {
         >
           <div className="family-column">
             <h4>Nhà gái</h4>
-            <p>Ông: Phạm Văn A</p>
-            <p>Bà: Nguyễn Thị B</p>
+            <p>Ông: Phạm văn ngân</p>
+            <p>Bà: Nguyễn Thị Chung</p>
           </div>
 
           <div className="divider1"></div>

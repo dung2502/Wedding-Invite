@@ -1,7 +1,7 @@
 import "./AboutCouple.css";
 
-import groomImg from "../../assets/images/brideImg.jpg";
-import brideImg from "../../assets/images/groomImg.jpg";
+import groomImg from "../../assets/images/optimized/brideImg.webp";
+import brideImg from "../../assets/images/optimized/groomImg.webp";
 
 import ringGif from "../../assets/gif/wedding7gifgif.gif";
 import flowerGif from "../../assets/gif/wedding7gif.gif";
@@ -22,7 +22,7 @@ export default function AboutCouple() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <img src={groomImg} alt="groom" />
+          <img src={groomImg} className="about-photo about-photo--groom" alt="groom" />
         </motion.div>
 
         <motion.div
@@ -66,7 +66,7 @@ export default function AboutCouple() {
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
         >
-          <img src={brideImg} alt="bride" />
+          <img src={brideImg} className="about-photo about-photo--bride" alt="bride" />
         </motion.div>
       </div>
     </section>

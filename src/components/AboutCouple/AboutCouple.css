@@ -44,11 +44,16 @@
 }
 
 /* IMAGE */
-.about-img img {
+.about-photo {
+  display: block;
   width: 320px;
   height: 420px;
   object-fit: cover;
   border-radius: 12px;
+}
+
+.about-photo--groom {
+  object-position: 50% 30%;
 }
 
 /* CARD */
@@ -124,11 +129,21 @@
   }
 
   /* IMAGE */
-  .about-img img {
+  .about-img {
+    min-width: 0;
+  }
+
+  .about-photo {
+    display: block;
     width: 100%;
-    height: 220px;
+    height: auto;
+    aspect-ratio: 3 / 4;
     object-fit: cover;
     border-radius: 10px;
+  }
+
+  .about-photo--groom {
+    object-position: 50% 18%;
   }
 
   /* CARD */

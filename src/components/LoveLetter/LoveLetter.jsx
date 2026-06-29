@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./LoveLetter.css";
-import couple from "../../assets/images/LoveLetter.jpg";
+import couple from "../../assets/images/optimized/LoveLetter.webp";
 
 export default function LoveLetter() {
   const [isOpen, setIsOpen] = useState(false);

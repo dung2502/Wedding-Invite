@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
-import petal1 from "../../assets/images/petal1.png"
-import petal2 from "../../assets/images/petal2.png" 
+import petal1 from "../../assets/images/optimized/petal1.webp"
+import petal2 from "../../assets/images/optimized/petal2.webp" 
 
 const petalsImages = [petal1, petal2];
 

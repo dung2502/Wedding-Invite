@@ -1,5 +1,5 @@
 import "./Intro.css";
-import couple from "../../assets/images/intro.jpg";
+import couple from "../../assets/images/optimized/intro.webp";
 import cheers from "../../assets/gif/cheers.gif";
 
 export default function Intro() {
