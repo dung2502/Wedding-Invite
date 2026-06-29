@@ -9,19 +9,25 @@ import {
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 
-import story1 from "../../assets/images/bg.jpg";
-import story2 from "../../assets/images/bg.jpg";
-import story3 from "../../assets/images/bg.jpg";
-import story4 from "../../assets/images/bg.jpg";
-import story5 from "../../assets/images/bg.jpg";
+import gallery1 from "../../assets/images/gallery1.jpg";
+import gallery2 from "../../assets/images/gallery2.jpg";
+import gallery3 from "../../assets/images/gallery3.jpg";
+import gallery4 from "../../assets/images/gallery4.jpg";
+import gallery5 from "../../assets/images/gallery5.jpg";
+import gallery6 from "../../assets/images/gallery6.jpg";
+import gallery7 from "../../assets/images/gallery7.jpg";
+import gallery8 from "../../assets/images/gallery8.jpg";
 import decoGif from "../../assets/gif/wedding6gif.gif";
 
 const images = [
-  { src: story1, category: "love" },
-  { src: story2, category: "ceremony" },
-  { src: story3, category: "party" },
-  { src: story4, category: "love" },
-  { src: story5, category: "ceremony" },
+  { src: gallery1, category: "love" },
+  { src: gallery2, category: "ceremony" },
+  { src: gallery3, category: "party" },
+  { src: gallery4, category: "love" },
+  { src: gallery5, category: "ceremony" },
+  { src: gallery6, category: "party" },
+  { src: gallery7, category: "love" },
+  { src: gallery8, category: "ceremony" },
 ];
 
 const filters = ["all", "love", "ceremony", "party"];
@@ -61,8 +67,6 @@ export default function Gallery() {
         Album
         <img src={decoGif} alt="decor" className="title-gif right" />
       </h2>
-
-      {/* PARALLAX BACKGROUND */}
       <div
         className="bg-blur"
         style={{
@@ -102,6 +106,8 @@ export default function Gallery() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.6 }}
             onClick={() => setOpen(true)}
+            loading="eager"
+            decoding="async"
           />
         </AnimatePresence>
       </div>
@@ -109,13 +115,14 @@ export default function Gallery() {
       {/* THUMB */}
       <div className="thumb-row">
         {filtered.map((img, i) => (
-          <div
+          <button
             key={i}
             className={`thumb ${i === index ? "active" : ""}`}
             onClick={() => setIndex(i)}
+            type="button"
           >
-            <img src={img.src} alt="" />
-          </div>
+            <img src={img.src} alt="" loading="lazy" decoding="async" />
+          </button>
         ))}
       </div>
 

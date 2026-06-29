@@ -1,5 +1,5 @@
     import "./ThankYou.css";
-    import couple from "../../assets/images/couple.png";
+    import couple from "../../assets/images/ThankYou.jpg";
 
     export default function ThankYou() {
     return (

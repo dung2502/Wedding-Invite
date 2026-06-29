@@ -44,14 +44,11 @@ function HomePage() {
       <Gift />
       <Intro/>
       <ThankYou />
-      {/* 👉 truyền xuống Footer */}
       <Footer
         audioRef={audioRef}
         isPlaying={isPlaying}
         setIsPlaying={setIsPlaying}
       />
-
-      {/* 👉 audio global */}
       <audio ref={audioRef} loop>
         <source src={weddingMusic} type="audio/mp3" />
       </audio>

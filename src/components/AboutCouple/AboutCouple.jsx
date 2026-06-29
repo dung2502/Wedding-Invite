@@ -1,7 +1,7 @@
 import "./AboutCouple.css";
 
-import groomImg from "../../assets/images/couple.png";
-import brideImg from "../../assets/images/couple.png";
+import groomImg from "../../assets/images/brideImg.jpg";
+import brideImg from "../../assets/images/groomImg.jpg";
 
 import ringGif from "../../assets/gif/wedding7gifgif.gif";
 import flowerGif from "../../assets/gif/wedding7gif.gif";

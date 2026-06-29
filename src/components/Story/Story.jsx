@@ -2,44 +2,47 @@ import "./Story.css";
 import { motion } from "framer-motion";
 import WordReveal from "./WordReveal";
 import TimelineModal from "./TimelineModal";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useScroll, useSpring } from "framer-motion";
 import { useRef } from "react";
 import { useTransform } from "framer-motion";
 
-import story1 from "../../assets/images/bg.jpg";
-import story2 from "../../assets/images/bg.jpg";
-import story3 from "../../assets/images/bg.jpg";
-import story4 from "../../assets/images/bg.jpg";
-import story5 from "../../assets/images/bg.jpg";
+import story1 from "../../assets/images/story1.jpg";
+import story2 from "../../assets/images/story2.jpg";
+import story3 from "../../assets/images/story3.jpg";
 import letterGif from "../../assets/gif/Email.gif";
 
 const data = [
   {
-    year: "2019",
+    year: "02/02/2025",
     text: "Chúng mình gặp nhau lần đầu",
     icon: "💘",
-    images: [story1, story2],
+    images: [story1],
     imageWedding: story1,
   },
   {
-    year: "2021",
+    year: "06/06/2025",
     text: "Bắt đầu hẹn hò",
     icon: "💑",
-    images: [story3, story4],
-    imageWedding: story1,
+    images: [story2],
+    imageWedding: story2,
   },
   {
-    year: "2025",
+    year: "08/08/2026",
     text: "Quyết định về chung một nhà",
     icon: "💍",
-    images: [story5, story1],
-    imageWedding: story1,
+    images: [story3],
+    imageWedding: story3,
   },
 ];
 
 export default function Story() {
   const ref = useRef();
+  const [selected, setSelected] = useState(null);
+  const moments = useMemo(
+    () => data.map((item, index) => ({ ...item, side: index % 2 === 0 ? "left" : "right" })),
+    []
+  );
 
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -49,14 +52,13 @@ export default function Story() {
   const wind = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   const rotateWind = useTransform(wind, (v) => {
-    return Math.sin(v * 10) * 4; // 👈 dao động
+    return Math.sin(v * 10) * 4;
   });
 
   const scaleY = useSpring(scrollYProgress, {
     stiffness: 80,
     damping: 20,
   });
-  const [selected, setSelected] = useState(null);
 
   return (
     <section id="story" className="story">
@@ -69,27 +71,28 @@ export default function Story() {
         Chuyện Tình Yêu
       </motion.h2>
 
-      <motion.p
+      <motion.div
         className="story__subtitle"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
       >
         <WordReveal text=" Một vài cột mốc nhỏ," delay={0.8} />
         <br />
         <WordReveal text="để kể lại hành trình của chúng mình." delay={1.5} />
-      </motion.p>
+      </motion.div>
 
       <motion.p
         className="story__note"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
       >
-        Nhớ bấm vào từng khoảnh khắc để xem hình ảnh của tụi mình nhé!
+        Chạm vào từng khoảnh khắc để xem thêm ảnh.
       </motion.p>
 
-      {/* DECORATION GIF */}
       <div className="story-decor decor-left">
         <img src={letterGif} alt="love letter" />
       </div>
@@ -102,32 +105,36 @@ export default function Story() {
         <img src={letterGif} alt="love letter" />
       </div>
 
-       <div className="story-decor decor-left-lower">
+      <div className="story-decor decor-left-lower">
         <img src={letterGif} alt="love letter" />
       </div>
 
       <div className="timeline" ref={ref}>
         <motion.div className="timeline-line-animated" style={{ scaleY }} />
-        {data.map((item, index) => (
+        {moments.map((item, index) => (
           <motion.div
             key={index}
-            className="timeline-item"
+            className={`timeline-item ${item.side}`}
             initial={{ opacity: 0, y: 60 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: index * 0.2 }}
             viewport={{ once: true }}
           >
-            <motion.div
+            <motion.button
+              type="button"
               className="timeline-card"
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
               whileHover={{ scale: 1.05, y: -5 }}
+              whileTap={{ scale: 0.98 }}
               transition={{ duration: 0.6 }}
               onClick={() => setSelected(item)}
+              aria-label={`Xem ảnh: ${item.text}, ${item.year}`}
             >
-              <h3 className="timeline-year">{item.year}</h3>
-              <p className="timeline-text">{item.text}</p>
-            </motion.div>
+              <span className="timeline-year">{item.year}</span>
+              <span className="timeline-text">{item.text}</span>
+              <span className="timeline-more">Xem ảnh</span>
+            </motion.button>
 
             <div className="timeline-dot">{item.icon}</div>
 
@@ -150,6 +157,8 @@ export default function Story() {
       {/* MODAL */}
       <TimelineModal
         isOpen={!!selected}
+        title={selected?.text}
+        date={selected?.year}
         images={selected?.images || []}
         onClose={() => setSelected(null)}
       />

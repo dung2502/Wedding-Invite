@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./LoveLetter.css";
-import couple from "../../assets/images/couple.png";
+import couple from "../../assets/images/LoveLetter.jpg";
 
 export default function LoveLetter() {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,19 +10,15 @@ export default function LoveLetter() {
   const [showImage, setShowImage] = useState(false);
 
   const handleOpen = () => {
-    setIsOpen(true);
+    if (isOpen) return;
 
-    // ⏱ sau khi mở nắp → hiện ảnh
+    setIsOpen(true); 
     setTimeout(() => {
       setShowImage(true);
     }, 600);
-
-    // ⏱ zoom ảnh
     setTimeout(() => {
       setZoom(true);
     }, 1000);
-
-    // ⏱ fade + chuyển trang
     setTimeout(() => {
       document.body.classList.add("flash");
 
@@ -32,6 +28,12 @@ export default function LoveLetter() {
     }, 2200);
   };
 
+  useEffect(() => {
+    return () => {
+      document.body.classList.remove("flash");
+    };
+  }, []);
+
   return (
     <div className={`letter-page ${zoom ? "zooming" : ""}`}>
       <div className="envlope-wrapper">
@@ -39,6 +41,15 @@ export default function LoveLetter() {
           id="envelope"
           className={isOpen ? "open" : "close"}
           onClick={handleOpen}
+          onKeyDown={(event) => {
+            if (event.key === "Enter" || event.key === " ") {
+              event.preventDefault();
+              handleOpen();
+            }
+          }}
+          role="button"
+          tabIndex={0}
+          aria-label="Open wedding invitation"
         >
           <div className="front flap"></div>
           <div className="front pocket"></div>

@@ -36,7 +36,7 @@ export default function Hero() {
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [weddingDate]); // ✅ FIX
+  }, [weddingDate]);
 
   return (
     <section className="hero" style={{ backgroundImage: `url(${hero})` }}>
@@ -103,8 +103,8 @@ export default function Hero() {
 
           <div className="family-column">
             <h4>Nhà trai</h4>
-            <p>Ông: Lê Khắc A</p>
-            <p>Bà: Nguyễn Thị B</p>
+            <p>Ông: Nguyễn Đức Đồng</p>
+            <p>Bà: Phan Thị Hà</p>
           </div>
         </motion.div>
 

@@ -1,57 +1,78 @@
 import { useState } from "react";
+import { FaExternalLinkAlt, FaGift, FaHeart } from "react-icons/fa";
 import "./Gift.css";
+
+const FACEBOOK_POST_URL = "https://facebook.com";
 
 export default function Gift() {
   const [open, setOpen] = useState(false);
-  const [fade, setFade] = useState(false);
+  const [leaving, setLeaving] = useState(false);
 
   const handleClick = () => {
     if (open) return;
 
     setOpen(true);
+    window.setTimeout(() => setLeaving(true), 900);
 
-    // delay cho hiệu ứng tim
-    setTimeout(() => setFade(true), 1800);
-
-    // redirect
-    setTimeout(() => {
-      window.location.href = "https://facebook.com";
-    }, 2600);
+    window.setTimeout(() => {
+      window.location.href = FACEBOOK_POST_URL;
+    }, 1500);
   };
 
   return (
-    <section className="gift">
-      <h2 className="gift-title">Hộp Quà Cưới</h2>
+    <section id="gift" className={`gift ${leaving ? "is-leaving" : ""}`}>
+      <div className="gift-container">
+        <div className="gift-copy">
+          <p className="gift-eyebrow">
+            <FaGift aria-hidden="true" />
+            Mừng cưới
+          </p>
+          <h2 className="gift-title">Hộp Quà Cưới</h2>
+          <p className="gift-subtitle">
+            Sự hiện diện của bạn đã là món quà quý giá nhất. Nếu muốn gửi thêm
+            lời chúc mừng, hãy mở hộp quà để đến bài viết chính thức của cô dâu
+            và chú rể.
+          </p>
 
-      <div className="gift-wrapper" onClick={handleClick}>
-        {/* 🎁 BOX */}
-        <div className={`gift-box ${open ? "open" : ""}`}>
-          <div className="lid left" />
-          <div className="lid right" />
-          <div className="box-body" />
-        </div>
-
-        {/* 💖 HEARTS */}
-        {open && (
-          <div className="hearts">
-            {[...Array(12)].map((_, i) => (
-              <span key={i} style={{ "--i": i }}>💖</span>
-            ))}
-          </div>
-        )}
-
-        {/* ↘️ ARROW CTA */}
-        {!open && (
-          <div className="gift-pointer">
-            <span className="gift-pointer-text">
-              Click để gửi quà cho cô dâu chú rể
+          <button
+            type="button"
+            className={`gift-wrapper ${open ? "is-open" : ""}`}
+            onClick={handleClick}
+            aria-expanded={open}
+            aria-label="Mở hộp quà cưới và chuyển đến bài viết Facebook"
+          >
+            <span className={`gift-box ${open ? "open" : ""}`}>
+              <span className="gift-ribbon vertical" />
+              <span className="gift-ribbon horizontal" />
+              <span className="lid left" />
+              <span className="lid right" />
+              <span className="box-body" />
             </span>
-          </div>
-        )}
+
+            {open && (
+              <span className="gift-hearts" aria-hidden="true">
+                {[...Array(12)].map((_, i) => (
+                  <span key={i} style={{ "--i": i }}>
+                    <FaHeart />
+                  </span>
+                ))}
+              </span>
+            )}
+
+            <span className="gift-pointer-text">
+              {open ? (
+                <>
+                  Đang mở bài viết <FaExternalLinkAlt aria-hidden="true" />
+                </>
+              ) : (
+                "Chạm để mở quà"
+              )}
+            </span>
+          </button>
+        </div>
       </div>
 
-      {/* 🌫 FADE */}
-      {fade && <div className="fade-screen" />}
+      {leaving && <div className="gift-fade" />}
     </section>
   );
 }
