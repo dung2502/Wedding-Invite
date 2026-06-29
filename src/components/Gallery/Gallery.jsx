@@ -9,25 +9,33 @@ import {
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 
-import gallery1 from "../../assets/images/gallery1.jpg";
-import gallery2 from "../../assets/images/gallery2.jpg";
-import gallery3 from "../../assets/images/gallery3.jpg";
-import gallery4 from "../../assets/images/gallery4.jpg";
-import gallery5 from "../../assets/images/gallery5.jpg";
-import gallery6 from "../../assets/images/gallery6.jpg";
-import gallery7 from "../../assets/images/gallery7.jpg";
-import gallery8 from "../../assets/images/gallery8.jpg";
+import gallery1 from "../../assets/images/wedding/web/gallery1.webp";
+import gallery2 from "../../assets/images/wedding/web/gallery2.webp";
+import gallery3 from "../../assets/images/wedding/web/gallery3.webp";
+import gallery4 from "../../assets/images/wedding/web/gallery4.webp";
+import gallery5 from "../../assets/images/wedding/web/gallery5.webp";
+import gallery6 from "../../assets/images/wedding/web/gallery6.webp";
+import gallery7 from "../../assets/images/wedding/web/gallery7.webp";
+import gallery8 from "../../assets/images/wedding/web/gallery8.webp";
+import galleryThumb1 from "../../assets/images/wedding/thumbs/gallery1.webp";
+import galleryThumb2 from "../../assets/images/wedding/thumbs/gallery2.webp";
+import galleryThumb3 from "../../assets/images/wedding/thumbs/gallery3.webp";
+import galleryThumb4 from "../../assets/images/wedding/thumbs/gallery4.webp";
+import galleryThumb5 from "../../assets/images/wedding/thumbs/gallery5.webp";
+import galleryThumb6 from "../../assets/images/wedding/thumbs/gallery6.webp";
+import galleryThumb7 from "../../assets/images/wedding/thumbs/gallery7.webp";
+import galleryThumb8 from "../../assets/images/wedding/thumbs/gallery8.webp";
 import decoGif from "../../assets/gif/wedding6gif.gif";
 
 const images = [
-  { src: gallery1, category: "love" },
-  { src: gallery2, category: "ceremony" },
-  { src: gallery3, category: "party" },
-  { src: gallery4, category: "love" },
-  { src: gallery5, category: "ceremony" },
-  { src: gallery6, category: "party" },
-  { src: gallery7, category: "love" },
-  { src: gallery8, category: "ceremony" },
+  { src: gallery1, thumb: galleryThumb1, category: "love" },
+  { src: gallery2, thumb: galleryThumb2, category: "ceremony" },
+  { src: gallery3, thumb: galleryThumb3, category: "party" },
+  { src: gallery4, thumb: galleryThumb4, category: "love" },
+  { src: gallery5, thumb: galleryThumb5, category: "ceremony" },
+  { src: gallery6, thumb: galleryThumb6, category: "party" },
+  { src: gallery7, thumb: galleryThumb7, category: "love" },
+  { src: gallery8, thumb: galleryThumb8, category: "ceremony" },
 ];
 
 const filters = ["all", "love", "ceremony", "party"];
@@ -70,7 +78,7 @@ export default function Gallery() {
       <div
         className="bg-blur"
         style={{
-          backgroundImage: `url(${filtered[index]?.src})`,
+          backgroundImage: `url(${filtered[index]?.thumb})`,
         }}
       />
 
@@ -121,7 +129,7 @@ export default function Gallery() {
             onClick={() => setIndex(i)}
             type="button"
           >
-            <img src={img.src} alt="" loading="lazy" decoding="async" />
+            <img src={img.thumb} alt="" loading="lazy" decoding="async" />
           </button>
         ))}
       </div>
