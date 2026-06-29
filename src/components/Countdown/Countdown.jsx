@@ -61,7 +61,7 @@ export default function Countdown() {
               {/* Groom */}
               <div
                 className={`groom ${time?.progress >= 95 ? "love" : ""}`}
-                style={{ left: `${time?.progress || 0}%` }}
+                style={{ "--progress": `${time?.progress || 0}%` }}
               >
                 <img src={groomGif} alt="groom" />
               </div>

@@ -83,6 +83,9 @@
 
 /* ===== TRACK ===== */
 .progress-track {
+  --couple-icon-size: 50px;
+  --couple-icon-gap: 82px;
+
   position: relative;
   width: 100%;
   max-width: 750px;
@@ -112,6 +115,11 @@
 /* ===== GROOM ===== */
 .groom {
   position: absolute;
+  left: clamp(
+    calc(var(--couple-icon-size) / 2),
+    var(--progress, 0%),
+    calc(100% - var(--couple-icon-gap))
+  );
   top: -40px;
   transform: translateX(-50%);
   font-size: 34px;
@@ -133,7 +141,7 @@
 
 .bride img,
 .groom img {
-  width: 50px;     /* chỉnh theo ý bạn */
+  width: var(--couple-icon-size);
   height: auto;
   display: block;
 }
@@ -249,7 +257,21 @@
 
 /* Mobile */
 @media (max-width: 600px) {
+  .countdown {
+    padding-inline: 18px;
+  }
+
   .flip-number {
     font-size: 28px;
+  }
+
+  .progress-track {
+    --couple-icon-size: 44px;
+    --couple-icon-gap: 70px;
+  }
+
+  .groom,
+  .bride {
+    top: -36px;
   }
 }
