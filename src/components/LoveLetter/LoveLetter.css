@@ -237,6 +237,7 @@
 .love-content {
   position: absolute;
   inset: 0;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -265,6 +266,10 @@
 }
 
 .open .letter-image {
+  opacity: 0;
+}
+
+.open .letter-image.is-visible {
   opacity: 1;
   transform: scale(1);
 }

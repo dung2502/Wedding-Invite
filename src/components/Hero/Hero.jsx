@@ -95,7 +95,7 @@ export default function Hero() {
         >
           <div className="family-column">
             <h4>Nhà gái</h4>
-            <p>Ông: Phạm văn ngân</p>
+            <p>Ông: Phạm văn Ngân</p>
             <p>Bà: Nguyễn Thị Chung</p>
           </div>
 

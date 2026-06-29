@@ -8,6 +8,7 @@ export default function LoveLetter() {
   const [zoom, setZoom] = useState(false);
   const navigate = useNavigate();
   const [showImage, setShowImage] = useState(false);
+  const [imageReady, setImageReady] = useState(false);
 
   const handleOpen = () => {
     if (isOpen) return;
@@ -29,8 +30,28 @@ export default function LoveLetter() {
   };
 
   useEffect(() => {
+    const preloadLink = document.createElement("link");
+    preloadLink.rel = "preload";
+    preloadLink.as = "image";
+    preloadLink.href = couple;
+    document.head.appendChild(preloadLink);
+
+    const markReady = () => setImageReady(true);
+    const image = new Image();
+    image.onload = markReady;
+    image.src = couple;
+
+    if (image.complete) {
+      markReady();
+    }
+
+    if (image.decode) {
+      image.decode().then(markReady).catch(markReady);
+    }
+
     return () => {
       document.body.classList.remove("flash");
+      preloadLink.remove();
     };
   }, []);
 
@@ -55,11 +76,17 @@ export default function LoveLetter() {
           <div className="front pocket"></div>
 
           <div className="letter">
-            {!showImage ? (
+            {!(showImage && imageReady) && (
               <div className="love-content">❤️ Forever & Always ❤️</div>
-            ) : (
-              <img src={couple} alt="couple" className="letter-image" />
             )}
+            <img
+              src={couple}
+              alt="couple"
+              className={`letter-image ${showImage && imageReady ? "is-visible" : ""}`}
+              loading="eager"
+              decoding="async"
+              fetchPriority="high"
+            />
           </div>
 
           <div className="hearts">
