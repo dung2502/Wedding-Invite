@@ -94,7 +94,7 @@ export default function Event() {
           dayLabel="THỨ SÁU"
           day="|  08  |"
           monthYear="08 - 2026"
-          lunar="(Tức ngày 27 tháng 06 năm Bính Ngọ)"
+          lunar="(Tức ngày 26 tháng 06 năm Bính Ngọ)"
           locationTitle="TƯ GIA NHÀ TRAI"
           address={`Thôn Cầu, Xuân Bình, Thanh Hóa`}
           image={GetMarried}
