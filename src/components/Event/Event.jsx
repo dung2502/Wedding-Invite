@@ -90,7 +90,7 @@ export default function Event() {
         {/* ===== LỄ THÀNH HÔN ===== */}
         <EventItem
           title="LỄ THÀNH HÔN"
-          time="Sáng : 10h00 - Chiều 16h00"
+          time="Sáng : 10h30"
           dayLabel="THỨ SÁU"
           day="|  08  |"
           monthYear="08 - 2026"
