@@ -48,7 +48,7 @@ export default function Event() {
         {/* ===== LỄ NẠP TÀI ===== */}
         <EventItem
           title="LỄ NẠP TÀI"
-          time="Vào hồi 14:00"
+          time="Vào hồi 08:00"
           dayLabel="THỨ TƯ"
           day="|  05  |"
           monthYear="08 - 2026"
