@@ -66,7 +66,7 @@ export default function Event() {
           dayLabel="THỨ SÁU"
           day="|  07  |"
           monthYear="08 - 2026"
-          lunar="(Tức ngày 26 tháng 06 năm Bính Ngọ)"
+          lunar="(Tức ngày 25 tháng 06 năm Bính Ngọ)"
           locationTitle="TƯ GIA NHÀ GÁI"
           address={`Khu phố 4, Yên Cát, Thanh Hóa`}
         />
@@ -80,7 +80,7 @@ export default function Event() {
           dayLabel="THỨ SÁU"
           day="|  07  |"
           monthYear="08 - 2026"
-          lunar="(Tức ngày 26 tháng 06 năm Bính Ngọ)"
+          lunar="(Tức ngày 25 tháng 06 năm Bính Ngọ)"
           locationTitle="TƯ GIA NHÀ TRAI"
           address={`Thôn Cầu, Xuân Bình, Thanh Hóa`}
         />
