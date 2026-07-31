@@ -91,7 +91,7 @@ export default function Event() {
         <EventItem
           title="LỄ THÀNH HÔN"
           time="Sáng : 10h30"
-          dayLabel="THỨ SÁU"
+          dayLabel="THỨ BẢY"
           day="|  08  |"
           monthYear="08 - 2026"
           lunar="(Tức ngày 26 tháng 06 năm Bính Ngọ)"
