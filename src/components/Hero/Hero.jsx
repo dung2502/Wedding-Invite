@@ -108,7 +108,6 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* ⏳ Countdown */}
         <motion.div
           className="countdown-mini"
           initial={{ opacity: 0 }}
