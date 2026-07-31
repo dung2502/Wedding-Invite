@@ -14,14 +14,14 @@ import letterGif from "../../assets/gif/Email.gif";
 
 const data = [
   {
-    year: "02/02/2025",
+    year: "08/08/2025",
     text: "Chúng mình gặp nhau lần đầu",
     icon: "💘",
     images: [story1],
     imageWedding: story1,
   },
   {
-    year: "06/06/2025",
+    year: "14/02/2026",
     text: "Bắt đầu hẹn hò",
     icon: "💑",
     images: [story2],
