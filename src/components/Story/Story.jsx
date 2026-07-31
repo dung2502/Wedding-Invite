@@ -28,8 +28,8 @@ const data = [
     imageWedding: story2,
   },
   {
-    year: "08/08/2026",
-    text: "Quyết định về chung một nhà",
+    year: "05/03/2026",
+    text: "Anh cầu hôn em",
     icon: "💍",
     images: [story3],
     imageWedding: story3,
