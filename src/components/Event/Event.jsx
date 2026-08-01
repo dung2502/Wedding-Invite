@@ -54,7 +54,7 @@ export default function Event() {
           monthYear="08 - 2026"
           lunar="(Tức ngày 23 tháng 06 năm Bính Ngọ)"
           locationTitle="TƯ GIA NHÀ GÁI"
-          address={`Khu phố 4, Yên Cát, Thanh Hóa`}
+          address={`Thôn Yên Cát, xã Như Xuân, tỉnh Thanh Hoá`}
         />
 
         <div className="divider dashed" />
@@ -68,7 +68,7 @@ export default function Event() {
           monthYear="08 - 2026"
           lunar="(Tức ngày 25 tháng 06 năm Bính Ngọ)"
           locationTitle="TƯ GIA NHÀ GÁI"
-          address={`Khu phố 4, Yên Cát, Thanh Hóa`}
+          address={`Thôn Yên Cát, xã Như Xuân, tỉnh Thanh Hoá`}
         />
 
         <div className="divider dashed" />
@@ -82,7 +82,7 @@ export default function Event() {
           monthYear="08 - 2026"
           lunar="(Tức ngày 25 tháng 06 năm Bính Ngọ)"
           locationTitle="TƯ GIA NHÀ TRAI"
-          address={`Thôn Cầu, Xuân Bình, Thanh Hóa`}
+          address={`Thôn Bãi Trành, xã Xuân Bình, tỉnh Thanh Hóa`}
         />
 
         <div className="divider dashed" />
@@ -96,7 +96,7 @@ export default function Event() {
           monthYear="08 - 2026"
           lunar="(Tức ngày 26 tháng 06 năm Bính Ngọ)"
           locationTitle="TƯ GIA NHÀ TRAI"
-          address={`Thôn Cầu, Xuân Bình, Thanh Hóa`}
+          address={`Thôn Bãi Trành, xã Xuân Bình, tỉnh Thanh Hóa`}
           image={GetMarried}
         />
 
@@ -106,12 +106,12 @@ export default function Event() {
             <h4>📍 Nhà trai</h4>
 
             <iframe
-              src="https://maps.google.com/maps?q=Bãi Trành Thanh Hóa&t=&z=13&ie=UTF8&iwloc=&output=embed"
+              src="https://maps.google.com/maps?q=19°28'09.2%22N+105°26'26.1%22E&t=&z=15&ie=UTF8&iwloc=&output=embed"
               title="map-nha-trai"
             />
 
             <a
-              href="https://www.google.com/maps?q=Bãi Trành Thanh Hóa"
+              href="https://www.google.com/maps?q=19°28'09.2%22N+105°26'26.1%22E"
               target="_blank"
               rel="noreferrer"
             >
@@ -123,12 +123,12 @@ export default function Event() {
             <h4>📍 Nhà gái</h4>
 
             <iframe
-              src="https://maps.google.com/maps?q=Yên Cát Thanh Hóa&t=&z=13&ie=UTF8&iwloc=&output=embed"
+              src="https://maps.google.com/maps?q=19.6645229,105.4304695&t=&z=15&ie=UTF8&iwloc=&output=embed"
               title="map-nha-gai"
             />
 
             <a
-              href="https://www.google.com/maps?q=Yên Cát Thanh Hóa"
+              href="https://maps.app.goo.gl/TfczeoWNY13uzsNYA"
               target="_blank"
               rel="noreferrer"
             >

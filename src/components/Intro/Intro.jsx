@@ -21,7 +21,7 @@ export default function Intro() {
           <h2 className="intro-title">Lời Ngỏ</h2>
 
           <div className="intro-text">
-            <p>Gửi đến gia đình và bạn bè thân mến,</p>
+            <p>Gửi đến gia đình, anh em và bạn bè,</p>
             <p>
               Trong ngày trọng đại sắp tới, khi chúng mình chính thức bắt đầu
               một chặng đường mới của cuộc đời, thật hạnh phúc và vinh dự khi

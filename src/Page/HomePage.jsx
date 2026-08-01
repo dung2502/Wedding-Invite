@@ -4,7 +4,6 @@ import Navbar from "../components/Navbar/Navbar";
 import Hero from "../components/Hero/Hero";
 import Countdown from "../components/Countdown/Countdown";
 import AboutCouple from "../components/AboutCouple/AboutCouple";
-import Story from "../components/Story/Story";
 import Gallery from "../components/Gallery/Gallery";
 import Event from "../components/Event/Event";
 import Gift from "../components/Gift/Gift"; 
@@ -23,7 +22,6 @@ function HomePage() {
       audioRef.current.volume = 0.4;
 
       audioRef.current.play().catch(() => {
-        // browser chặn autoplay → fallback
         setIsPlaying(false);
       });
     }
@@ -37,7 +35,6 @@ function HomePage() {
       <Hero />
       <Countdown />
       <AboutCouple />
-      <Story />
       <Gallery />
       <WeddingCalendar />
       <Event />
