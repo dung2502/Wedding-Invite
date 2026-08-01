@@ -98,7 +98,7 @@ export default function Footer({ audioRef, isPlaying, setIsPlaying }) {
 
           <div className="footer__actions" aria-label="Liên kết mạng xã hội">
             <a
-              href="https://facebook.com"
+              href="https://www.facebook.com/minh.anh.pham.839338"
               target="_blank"
               rel="noreferrer"
               aria-label="Facebook"
@@ -107,7 +107,7 @@ export default function Footer({ audioRef, isPlaying, setIsPlaying }) {
             </a>
 
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/_inn.02_/"
               target="_blank"
               rel="noreferrer"
               aria-label="Instagram"
